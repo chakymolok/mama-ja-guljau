@@ -333,3 +333,23 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
     bottom: 132px;
   }
 }
+
+
+.source-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.prose .note-list {
+  margin: 18px 0 24px;
+  padding-left: 0;
+  list-style: none;
+}
+.prose .note-list li {
+  margin: 10px 0;
+  padding-left: 0;
+}
+.article-block .prose a:not(.tag):not(.link-card) {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
