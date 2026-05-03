@@ -3,425 +3,129 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Мама, я гуляю — дайджесты для родителей, прогулок и длинных выходных</title>
-  <meta name="description" content="Короткие дайджесты для родителей: что почитать, во что поиграть, что посмотреть и как провести прогулку или выходные без родительского героизма." />
+  <title>Мама, я гуляю — первый майский выпуск</title>
+  <meta name="description" content="Короткий родительский дайджест. В тестовом выпуске: Денискины рассказы, фланёрство, разговор про работу, свободное время, Миядзаки и детский термос." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- ===== promo ===== -->
   <div class="promo">
-    Свежие выпуски — в Telegram, по вторникам и пятницам. <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Подписаться →</a>
+    Слойка помогает понять, как одеть ребёнка по погоде. <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Открыть бота →</a>
   </div>
 
-  <!-- ===== header ===== -->
   <header class="header">
     <div class="header-inner">
-      <a href="#top" class="logo">
-        <span class="logo-mark">🍃</span>
-        Мама, я гуляю
-      </a>
+      <a href="#" class="logo"><span class="logo-mark">🍃</span>Мама, я гуляю</a>
       <nav class="nav">
-        <a href="#today">Сегодня</a>
-        <a href="#issues">Выпуски</a>
-        <a href="#categories">Рубрики</a>
-        <a href="#random">Идея</a>
+        <a href="#issue">Выпуск</a>
+        <a href="#inside">Что внутри</a>
+        <a href="#rubrics">Рубрики</a>
         <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Telegram</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main>
+    <section class="home-hero">
+      <div class="container home-hero-grid">
+        <div>
+          <div class="kicker">Тестовый выпуск</div>
+          <h1>Мама, я гуляю</h1>
+          <p class="lead">Короткие дайджесты для родителей: что почитать, во что поиграть, что посмотреть и как не превратить выходные в семейный спецпроект.</p>
+          <p class="sub">Пока на сайте один показательный выпуск. Без морализаторства, марафонов осознанности и родительского героизма.</p>
+          <div class="hero-actions">
+            <a href="digests/2026-05-01/" class="btn btn-primary">Читать выпуск №009</a>
+            <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener" class="btn btn-green">Открыть Слойку</a>
+          </div>
+        </div>
 
-    <!-- ===== hero ===== -->
-    <section class="hero">
-      <div class="container">
-        <h1>Мама, я гуляю</h1>
-        <p class="lead">Короткие дайджесты для родителей: что почитать, во что поиграть, что посмотреть и как провести выходные без родительского героизма.</p>
-        <p class="sub">Новый выпуск — пару раз в неделю. Сейчас на главной — первый майский выпуск про длинные выходные, время, внимание и прогулку по своему району.</p>
-        <div class="hero-actions">
-          <a href="#today" class="btn btn-primary">Читать свежий выпуск</a>
-          <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener" class="btn btn-tg">Подписаться в Telegram</a>
+        <div class="editorial-collage" aria-hidden="true">
+          <div class="collage-card collage-main">
+            <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/56e62fd5-1f8d-46f0-839e-a2f2a59a2dc1/1920x" alt="">
+          </div>
+          <div class="collage-card collage-book">
+            <img src="https://img4.labirint.ru/rc/86dc28cb6ec4538e7a2c10a10cae3e7c/220x340q80/books62/619001/cover.jpg" alt="">
+          </div>
+          <div class="collage-card collage-clock">
+            <span>свободное время</span>
+            <b>5 ч</b>
+          </div>
+          <div class="collage-card collage-thermos">
+            <img src="https://thermos.com/cdn/shop/products/F4100PK6_PrimaryHero_FUNTAINER_PinkV2.png" alt="">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== layout: sidebar + content ===== -->
-    <div class="container">
-      <div class="layout">
-
-        <!-- sidebar with filters -->
-        <aside class="sidebar" id="filters">
-          <button class="sidebar-toggle" type="button" aria-expanded="false">
-            <span>Быстрые фильтры</span>
-            <span class="chevron">▾</span>
-          </button>
-          <div class="sidebar-content">
-            <div class="kicker" style="margin-bottom: 18px;">Быстрые фильтры</div>
-
-            <div class="filter-block">
-              <h4>Рубрики</h4>
-              <div class="chip-row">
-                <button class="chip" data-group="cats" data-filter="books">Книжка-пятиминутка <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="walks">Игры на улице <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="day">Повод поговорить <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="useful">Полезное <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="podcasts">Послушать <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="watch">Посмотреть <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="make">Сделать руками <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="finds">Находки <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="tasks">Маленькие задания <span class="count"></span></button>
-              </div>
+    <section id="issue">
+      <div class="container">
+        <article class="feature-card">
+          <div class="feature-card-image">
+            <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/56e62fd5-1f8d-46f0-839e-a2f2a59a2dc1/1920x" alt="Кики на метле над морем">
+            <div class="feature-card-badge">
+              <span class="hl">№009</span>
+              <span style="margin-left: 10px;">1 мая 2026</span>
             </div>
-
-            <div class="filter-block">
-              <h4>Возраст</h4>
-              <div class="chip-row">
-                <button class="chip" data-group="ages" data-filter="age-03">0–3 <span class="count"></span></button>
-                <button class="chip" data-group="ages" data-filter="age-35">3–5 <span class="count"></span></button>
-                <button class="chip" data-group="ages" data-filter="age-57">5–7 <span class="count"></span></button>
-                <button class="chip" data-group="ages" data-filter="age-7p">7+ <span class="count"></span></button>
-              </div>
-            </div>
-
-            <div class="filter-block">
-              <h4>Ситуация</h4>
-              <div class="chip-row">
-                <button class="chip" data-group="sits" data-filter="tired">Сил нет <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="5min">5 минут <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="noprep">Без подготовки <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="stroller">Можно с коляской <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="yard">Во дворе <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="road">В дороге <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="home">Дома <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="cold">На улице холодно <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="sickhome">Болеем дома <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="queue">В кафе или очереди <span class="count"></span></button>
-              </div>
-            </div>
-
-            <button class="filters-reset" type="button" hidden>× Сбросить</button>
           </div>
-        </aside>
-
-        <!-- content -->
-        <div class="content">
-
-          <!-- fresh issue -->
-          <section>
+          <div class="feature-card-body">
             <div class="kicker">Свежий выпуск</div>
-            <article class="fresh-banner">
-              <div class="cover mosaic">
-                <div class="tile t-blue">🌷 Май</div>
-                <div class="tile t-cream">📚 Дениска</div>
-                <div class="tile t-yellow">⏳ 5 часов</div>
-                <div class="tile t-pink">💼 Работа</div>
-                <div class="tile t-sand">🎬 Кики</div>
-                <div class="tile t-green">🚶 Фланёр</div>
-                <div class="tile t-pink-2">🥤 Термос</div>
-              </div>
-              <div class="info">
-                <div class="meta">
-                  <span class="hl">№009</span>
-                  <span>1 мая 2026</span>
-                </div>
-                <h3>Первый майский: что делать с длинными выходными, если их слишком много</h3>
-                <p>Внутри: Денискины рассказы, исследование UCLA про свободное время, «Кикина служба доставки», фланёрство как семейная прогулка и хороший детский термос.</p>
-                <div class="tag-row">
-                  <span class="tag">📚 Книжка</span>
-                  <span class="tag">🌳 Прогулка</span>
-                  <span class="tag">💬 Разговор</span>
-                  <span class="tag">🧠 Полезное</span>
-                  <span class="tag">👀 Посмотреть</span>
-                  <span class="tag">🎁 Находка</span>
-                  <span class="tag">🧺 Задание</span>
-                </div>
-                <a href="digests/2026-05-01/" class="btn btn-primary">Открыть выпуск</a>
-              </div>
-            </article>
-          </section>
-
-          <!-- issues feed -->
-          <section id="issues">
-            <div class="kicker">Выпуски</div>
-            <h2 class="month">Май и апрель 2026</h2>
-
-            <div class="issue-list">
-
-              <a class="issue" href="digests/2026-04-28/" data-cats="walks tasks watch" data-ages="age-35 age-57" data-sits="5min noprep road">
-                <div class="cover">
-                  <div class="tile t-blue">☁️</div>
-                  <div class="tile t-yellow">🌤</div>
-                  <div class="tile t-cream">🛒</div>
-                  <div class="tile t-pink">👀</div>
-                  <div class="tile t-sand">🌥</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№005</span>
-                  <span class="date">28 апреля</span>
-                </div>
-                <h3>Облака, тени и маленькая экспедиция до магазина</h3>
-                <p>Игра про облака, короткая прогулка по дороге за продуктами и задание на внимательность.</p>
-                <div class="issue-tags">
-                  <span class="tag">улица</span>
-                  <span class="tag">5 минут</span>
-                  <span class="tag">3–6 лет</span>
-                  <span class="tag">без подготовки</span>
-                </div>
-              </a>
-
-              <a class="issue" href="digests/2026-04-17/" data-cats="useful make watch" data-ages="age-35 age-57" data-sits="home tired">
-                <div class="cover">
-                  <div class="tile t-cream">☕️</div>
-                  <div class="tile t-pink">🛋</div>
-                  <div class="tile t-sand">🚇</div>
-                  <div class="tile t-yellow">🥐</div>
-                  <div class="tile t-pink-2">🎈</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№004</span>
-                  <span class="date">25 апреля</span>
-                </div>
-                <h3>Выходные без логистического ада</h3>
-                <p>Что сделать дома, куда выбраться на пару часов и как не превращать субботу в семейный спецпроект.</p>
-                <div class="issue-tags">
-                  <span class="tag">выходные</span>
-                  <span class="tag">дома</span>
-                  <span class="tag">куда сходить</span>
-                  <span class="tag">сил немного</span>
-                </div>
-              </a>
-
-              <a class="issue" href="digests/2026-04-10/" data-cats="walks books podcasts" data-ages="age-03 age-35" data-sits="yard tired">
-                <div class="cover">
-                  <div class="tile t-green">🌳</div>
-                  <div class="tile t-yellow">🛝</div>
-                  <div class="tile t-pink">🎧</div>
-                  <div class="tile t-sand">🪨</div>
-                  <div class="tile t-cream">📚</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№003</span>
-                  <span class="date">21 апреля</span>
-                </div>
-                <h3>Что делать во дворе, если взрослый уже устал</h3>
-                <p>Идея для короткой прогулки, книжка на вечер и подкаст, который можно слушать, пока ребёнок собирает палки.</p>
-                <div class="issue-tags">
-                  <span class="tag">двор</span>
-                  <span class="tag">сил нет</span>
-                  <span class="tag">0–3</span>
-                  <span class="tag">3–5</span>
-                </div>
-              </a>
-
-              <a class="issue" href="digests/2026-04-07/" data-cats="walks day tasks make" data-ages="age-35 age-57" data-sits="noprep yard">
-                <div class="cover">
-                  <div class="tile t-green">🍃</div>
-                  <div class="tile t-green-2">🌿</div>
-                  <div class="tile t-sand">🪵</div>
-                  <div class="tile t-yellow">🌼</div>
-                  <div class="tile t-mint">🟢</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№002</span>
-                  <span class="date">18 апреля</span>
-                </div>
-                <h3>Палки, листья и прогулка без героизма</h3>
-                <p>Простая игра с природными фактурами, день одуванчика и маленькое задание на поиск зелёных оттенков.</p>
-                <div class="issue-tags">
-                  <span class="tag">природа</span>
-                  <span class="tag">улица</span>
-                  <span class="tag">2–6 лет</span>
-                  <span class="tag">без реквизита</span>
-                </div>
-              </a>
-
-              <a class="issue" href="digests/2026-04-03/" data-cats="books walks day useful podcasts finds tasks" data-ages="age-35 age-57" data-sits="5min noprep">
-                <div class="cover">
-                  <div class="tile t-blue">💧</div>
-                  <div class="tile t-cream">📖</div>
-                  <div class="tile t-yellow">🥃</div>
-                  <div class="tile t-pink">🌧</div>
-                  <div class="tile t-sand">⏳</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№001</span>
-                  <span class="date">14 апреля</span>
-                </div>
-                <h3>Лужи, книжка на 5 минут и день гранёного стакана</h3>
-                <p>Первый выпуск: прогулочная игра, странный праздник, полезная мысль и задание на наблюдательность.</p>
-                <div class="issue-tags">
-                  <span class="tag">лужи</span>
-                  <span class="tag">книга</span>
-                  <span class="tag">день</span>
-                  <span class="tag">подкаст</span>
-                </div>
-              </a>
-
+            <h2>Первый майский: что делать с длинными выходными, если их слишком много</h2>
+            <p>Денискины рассказы, фланёрство по своему району, разговор про работу, исследование UCLA про свободное время, «Ведьмина служба доставки» и хороший детский термос.</p>
+            <div class="tag-row">
+              <span class="tag">📚 чтение</span>
+              <span class="tag">🚶 прогулка</span>
+              <span class="tag">💬 разговор</span>
+              <span class="tag">⏳ время</span>
+              <span class="tag">🎬 фильм</span>
+              <span class="tag">🥤 находка</span>
             </div>
+            <a href="digests/2026-05-01/" class="btn btn-primary">Открыть выпуск</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-            <div class="empty-state" hidden>
-              По выбранным фильтрам пока ничего нет. Попробуйте снять часть тегов.
-            </div>
-          </section>
-
-          <!-- issue detail -->
-          <section id="today">
-            <div class="kicker">Полная версия</div>
-
-            <div class="detail-banner">
-              <div class="cover mosaic">
-                <div class="tile t-blue">💧</div>
-                <div class="tile t-cream">📖</div>
-                <div class="tile t-yellow">🥃</div>
-                <div class="tile t-pink">🌧</div>
-                <div class="tile t-sand">⏳</div>
-                <div class="tile t-green">🎧</div>
-                <div class="tile t-pink-2">🎁</div>
-              </div>
-            </div>
-
-            <h2 class="detail-num">Мама, я гуляю <span class="hl">№001</span></h2>
-            <h2 class="detail-title">Лужи, книжка на 5 минут и день гранёного стакана</h2>
-
-            <p class="intro">Сегодня без героизма. Одна простая игра для прогулки, одна книжка на вечер, один странный повод дня и пара полезных ссылок для взрослых, которые держатся бодро, но уже не железные.</p>
-
-            <p class="intro" style="color: var(--muted); margin-bottom: 14px;">Что внутри:</p>
-            <ul class="intro-list">
-              <li>Книжка на 5 минут — «Очень голодная гусеница»</li>
-              <li>Игра на улице — «Листик, камешек, палочка»</li>
-              <li>Повод поговорить — день гранёного стакана</li>
-              <li>Полезная мысль про короткую прогулку</li>
-              <li>Подкаст для дороги</li>
-              <li>Находка недели — приличный дождевик</li>
-              <li>Маленькое задание для ребёнка</li>
-            </ul>
-
-            <div class="block">
-              <div class="block-kicker">📚 Книжка-пятиминутка</div>
-              <h3>«Очень голодная гусеница»</h3>
-              <div class="marks">
-                <span class="mark">Возраст: 2–5 лет</span>
-                <span class="mark">Время: 5 минут</span>
-                <span class="mark">Силы взрослого: почти не нужны</span>
-              </div>
-              <p>Короткая, ритмичная и понятная история, которую удобно читать перед сном или после прогулки. Хорошо работает, когда ребёнок ещё не готов «просто лечь», а взрослый уже почти готов.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🌳 Игра на улице</div>
-              <h3>«Листик, камешек, палочка»</h3>
-              <div class="marks">
-                <span class="mark">Возраст: 2–6 лет</span>
-                <span class="mark">Где: двор, парк, дорога до магазина</span>
-                <span class="mark">Время: 10 минут</span>
-                <span class="mark">Силы взрослого: низкие</span>
-              </div>
-              <p>Найдите на прогулке три предмета: листик, камешек и палочку. Не собираем мешок природных сокровищ домой, а рассматриваем: что гладкое, что шершавое, что лёгкое, что тяжёлое. Для детей постарше можно усложнить: найти самый маленький камешек, самый странный листик и палочку, похожую на волшебную.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">💬 Повод поговорить</div>
-              <h3>«День гранёного стакана»</h3>
-              <div class="marks">
-                <span class="mark">Формат: повод поговорить</span>
-                <span class="mark">Возраст: любой</span>
-                <span class="mark">Время: 3 минуты</span>
-              </div>
-              <p>Неофициальный повод поговорить с ребёнком о вещах из прошлого. Почему у бабушки такие стаканы? Почему стакан может быть и чашкой, и меркой, и вазой? Мини-задание: найдите дома предмет, который старше ребёнка. А если повезёт — старше родителей.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🧠 Полезное</div>
-              <h3>«Короткая прогулка тоже считается»</h3>
-              <div class="marks">
-                <span class="mark">Для кого: взрослым</span>
-                <span class="mark">Время чтения: 2 минуты</span>
-              </div>
-              <p>Иногда прогулка не обязана быть развивающей, насыщенной и красиво оформленной. Можно просто выйти на 20 минут, пройтись до дерева, посмотреть на машины, потрогать мокрый лист и вернуться домой. Это тоже прогулка. И это тоже нормально.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🎧 Послушать</div>
-              <h3>«Подкаст для дороги»</h3>
-              <div class="marks">
-                <span class="mark">Формат: аудио</span>
-                <span class="mark">Когда: дорога, коляска, уборка</span>
-              </div>
-              <p>Один спокойный выпуск на 20–30 минут: про книги, город, психологию, историю или обычную взрослую жизнь. То, что можно включить, пока ребёнок спит в коляске, играет рядом или собирается на улицу уже 47 минут.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🎁 Находка недели</div>
-              <h3>«Дождевик, который не выглядит как пакет»</h3>
-              <div class="marks">
-                <span class="mark">Формат: вещь</span>
-                <span class="mark">Ситуация: межсезонье</span>
-              </div>
-              <p>Полезная штука для межсезонья: занимает мало места и спасает прогулку, когда погода решила устроить воспитательный момент. Здесь может быть ссылка на товар, промокод или партнёрская подборка.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🧺 Маленькое задание</div>
-              <h3>«Найти на прогулке»</h3>
-              <p>На следующей прогулке найдите: что-то круглое, что-то шуршащее, что-то синее и что-то, что ребёнок сам считает красивым. Если нашли хотя бы два пункта — выпуск выполнен. Вы великолепны.</p>
-            </div>
-          </section>
-
-          <!-- categories -->
-          <section id="categories">
-            <div class="kicker">Рубрики</div>
-            <div class="cats-grid">
-              <a class="cat" href="#"><span class="ic">📚</span><h3>Книжка-пятиминутка</h3><p>Короткие книги, которые можно прочитать перед сном, после прогулки или в тот момент, когда всем нужно чуть-чуть тишины.</p></a>
-              <a class="cat" href="#"><span class="ic">🌳</span><h3>Игры на улице</h3><p>Идеи для двора, парка, дороги до магазина и прогулки «ну хоть на 20 минут». Без сложного реквизита и подготовки.</p></a>
-              <a class="cat" href="#"><span class="ic">💬</span><h3>Повод поговорить</h3><p>Странные дни, вопросы, наблюдения и маленькие поводы обсудить с ребёнком мир.</p></a>
-              <a class="cat" href="#"><span class="ic">🧠</span><h3>Полезное</h3><p>Короткие заметки и памятки без паники, снобизма и «вы всё делаете неправильно».</p></a>
-              <a class="cat" href="#"><span class="ic">🎧</span><h3>Послушать</h3><p>Подкасты, аудио и спокойные выпуски для взрослых, которые можно включить на прогулке, дома или по дороге.</p></a>
-              <a class="cat" href="#"><span class="ic">👀</span><h3>Посмотреть</h3><p>Мультфильмы, короткие видео и спокойные штуки, которые можно показать ребёнку без превращения дня в экранный марафон.</p></a>
-              <a class="cat" href="#"><span class="ic">✂️</span><h3>Сделать руками</h3><p>Простые идеи из бумаги, коробок, листьев, пластилина и того, что уже есть дома.</p></a>
-              <a class="cat" href="#"><span class="ic">🎁</span><h3>Находки</h3><p>Книги, товары, сервисы, приложения и полезные штуки, которые могут сделать родительский быт чуть проще. Без отдельной охоты за промокодами.</p></a>
-            </div>
-          </section>
-
-          <!-- random -->
-          <section id="random">
-            <div class="kicker">Идея</div>
-            <div class="random-card">
-              <h2>Мне срочно нужна идея</h2>
-              <p class="desc">Нажмите кнопку — и получите короткую идею для ребёнка. Без подготовки, сложных правил и похода в магазин за материалами.</p>
-              <button id="random-btn" class="btn btn-primary" type="button">Дать идею</button>
-              <div id="idea-box" class="idea-box hidden">
-                <h3 id="idea-title"></h3>
-                <p id="idea-text"></p>
-                <div class="marks" id="idea-marks"></div>
-              </div>
-            </div>
-          </section>
-
-          <!-- telegram -->
-          <section id="telegram">
-            <div class="tg-card">
-              <div class="kicker">Telegram</div>
-              <h2>Получать дайджесты в Telegram</h2>
-              <p>Свежие выпуски можно получать через Слойку. Там же удобно проверять погоду перед прогулкой и быстро понять, как одеть ребёнка.</p>
-              <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener" class="btn">Подписаться на бота</a>
-            </div>
-          </section>
-
+    <section id="inside">
+      <div class="container">
+        <div class="kicker">Что внутри</div>
+        <div class="issue-teasers">
+          <div class="teaser"><span class="ic">📚</span><h3>Почитать</h3><p>Почему «Денискины рассказы» до сих пор работают и где их слушать.</p></div>
+          <div class="teaser"><span class="ic">🚶</span><h3>Погулять</h3><p>Фланёрство как семейная игра: пройти по району и увидеть его заново.</p></div>
+          <div class="teaser"><span class="ic">🎬</span><h3>Посмотреть</h3><p>«Ведьмина служба доставки» как фильм про выгорание, но для детей.</p></div>
         </div>
       </div>
-    </div>
+    </section>
 
+    <section id="rubrics">
+      <div class="container">
+        <div class="kicker">Рубрики проекта</div>
+        <div class="issue-teasers">
+          <div class="teaser"><span class="ic">📚</span><h3>Книжка-пятиминутка</h3><p>Книги, которые можно читать короткими кусками, без литературного подвига.</p></div>
+          <div class="teaser"><span class="ic">🌳</span><h3>Игры на улице</h3><p>Идеи для двора, парка, дороги до магазина и прогулки без подготовки.</p></div>
+          <div class="teaser"><span class="ic">💬</span><h3>Повод поговорить</h3><p>Темы, вопросы и странные поводы объяснить ребёнку кусочек мира.</p></div>
+          <div class="teaser"><span class="ic">👀</span><h3>Посмотреть</h3><p>Мультфильмы, короткие видео и визуальные штуки без экранного марафона.</p></div>
+          <div class="teaser"><span class="ic">✂️</span><h3>Сделать руками</h3><p>Простое творчество из того, что уже есть дома.</p></div>
+          <div class="teaser"><span class="ic">🎁</span><h3>Находки</h3><p>Вещи и сервисы, которые делают родительский быт чуть проще.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="tg-card">
+          <h2>Слойка в Telegram</h2>
+          <p>Погодный бот и приложение, которое помогает быстро понять, как одеть ребёнка перед прогулкой. Дальше туда же можно отправлять свежие дайджесты.</p>
+          <a class="btn" href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Открыть @sloika_ibot</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- ===== footer ===== -->
-  <footer>
+  <footer class="footer">
     <div class="container footer-inner">
-      <div>Мама, я гуляю — короткие дайджесты для родителей.</div>
-      <div class="footer-links">
+      <div>Мама, я гуляю - короткие дайджесты для родителей.</div>
+      <div>
+        <a href="digests/2026-05-01/">Выпуск №009</a>
         <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Telegram</a>
-        <a href="#issues">Архив</a>
-        <a href="#random">Идея</a>
       </div>
     </div>
   </footer>
