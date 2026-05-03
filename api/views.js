@@ -1,6 +1,5 @@
 // Vercel Serverless Function: /api/views
-// Do not put tokens into GitHub.
-// Add these variables in Vercel:
+// Add these variables in Vercel, not in GitHub:
 // UPSTASH_REDIS_REST_URL
 // UPSTASH_REDIS_REST_TOKEN
 
@@ -13,13 +12,10 @@ export default async function handler(req, res) {
   const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
 
   res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.setHeader("Cache-Control", "no-store");
 
   if (!redisUrl || !redisToken) {
-    return res.status(200).json({
-      slug: safeSlug,
-      views: 0,
-      configured: false
-    });
+    return res.status(200).json({ slug: safeSlug, views: 0, configured: false });
   }
 
   try {
@@ -34,19 +30,15 @@ export default async function handler(req, res) {
       body: JSON.stringify(command)
     });
 
+    if (!response.ok) {
+      return res.status(500).json({ slug: safeSlug, views: 0, error: "upstash_response_failed" });
+    }
+
     const data = await response.json();
     const views = Number(data.result || 0);
 
-    return res.status(200).json({
-      slug: safeSlug,
-      views,
-      configured: true
-    });
+    return res.status(200).json({ slug: safeSlug, views, configured: true });
   } catch (error) {
-    return res.status(500).json({
-      slug: safeSlug,
-      views: 0,
-      error: "views_counter_failed"
-    });
+    return res.status(500).json({ slug: safeSlug, views: 0, error: "views_counter_failed" });
   }
 }
