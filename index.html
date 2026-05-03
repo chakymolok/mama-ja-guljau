@@ -3,10 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Мама, я гуляю — короткие дайджесты для родителей</title>
-  <meta name="description" content="Короткие дайджесты для родителей: игры, книги, прогулки, полезные ссылки и идеи на сегодня." />
+  <title>Мама, я гуляю — дайджесты для родителей, прогулок и идей с детьми</title>
+  <meta name="description" content="Мама, я гуляю — короткие дайджесты для родителей: игры на улице, книги на 5 минут, идеи для прогулок, полезные статьи, задания для детей и бот Слойка для погоды." />
+  <meta name="keywords" content="дайджест для родителей, идеи для прогулки с ребенком, чем заняться с ребенком, игры на улице, книги для детей, Слойка бот, как одеть ребенка по погоде" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#FAF7F0" />
+  <link rel="canonical" href="https://example.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Мама, я гуляю — короткие дайджесты для родителей" />
+  <meta property="og:description" content="Игры, книги, прогулки, полезные ссылки, задания для детей и Слойка — погодный бот для родителей." />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
-    /* ===== base ===== */
     :root {
       --bg: #FAF7F0;
       --bg-2: #F2EDE0;
@@ -17,8 +27,6 @@
       --green: #7FA77B;
       --green-dark: #6E9469;
       --yellow: #F2C66D;
-      --pink: #F3A6A0;
-      --green-soft: #ECF2EB;
       --yellow-soft: #FBF1DA;
       --pink-soft: #FBE8E6;
       --blue-soft: #E0EAF2;
@@ -26,193 +34,75 @@
       --rose: #F0D8D5;
       --mint: #DCE7DB;
       --peach: #F4D4A8;
-      --radius: 16px;
+      --radius: 18px;
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       font-size: 17px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       -webkit-text-size-adjust: 100%;
     }
     a { color: inherit; text-decoration: none; }
-    h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+    h1, h2, h3 { margin: 0; letter-spacing: -0.03em; line-height: 1.08; }
     p { margin: 0; }
     button { font-family: inherit; }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    section { padding: 56px 0; }
-    section[id] { scroll-margin-top: 80px; }
-
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 54px 0; }
+    section[id] { scroll-margin-top: 86px; }
     .kicker {
+      margin-bottom: 18px;
+      color: var(--muted);
       font-size: 12px;
-      letter-spacing: 0.1em;
+      font-weight: 650;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 500;
-      margin-bottom: 24px;
     }
+    .muted { color: var(--muted); }
+    .hl { display: inline-block; padding: 2px 10px; border-radius: 8px; background: var(--green); color: #fff; font-size: 15px; font-weight: 750; }
 
-    /* зелёная маркерная плашка под номером */
-    .hl {
-      background: var(--green);
-      color: #fff;
-      padding: 0 10px;
-      border-radius: 6px;
-      display: inline-block;
-      letter-spacing: -0.01em;
-    }
-
-    /* ===== promo ===== */
-    .promo {
-      background: var(--peach);
-      color: var(--text);
-      font-weight: 500;
-      font-size: 15px;
-      text-align: center;
-      padding: 10px 24px;
-    }
+    .promo { padding: 10px 18px; text-align: center; font-size: 15px; font-weight: 600; background: var(--peach); }
     .promo a { text-decoration: underline; text-underline-offset: 3px; }
-    .promo a:hover { color: var(--green-dark); }
 
-    /* ===== header ===== */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(250, 247, 240, 0.92);
-      backdrop-filter: saturate(150%) blur(8px);
-      -webkit-backdrop-filter: saturate(150%) blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 17px;
-      flex-shrink: 0;
-    }
-    .logo-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--green);
-      display: inline-grid;
-      place-items: center;
-      font-size: 15px;
-    }
-    .nav {
-      display: flex;
-      gap: 2px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .nav a {
-      padding: 7px 12px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 500;
-      transition: background 0.15s, color 0.15s;
-    }
-    .nav a:hover { color: var(--text); background: var(--bg-2); }
+    .header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--border); background: rgba(250, 247, 240, .94); backdrop-filter: blur(10px); }
+    .header-inner { max-width: 1120px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; white-space: nowrap; }
+    .logo-mark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--green); font-size: 16px; }
+    .nav { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 4px; }
+    .nav a { padding: 7px 12px; border-radius: 999px; color: var(--muted); font-size: 15px; font-weight: 650; }
+    .nav a:hover { background: var(--bg-2); color: var(--text); }
 
-    @media (max-width: 720px) {
-      .header-inner { padding: 10px 16px; gap: 8px; }
-      .logo { font-size: 16px; }
-      .logo-mark { width: 26px; height: 26px; font-size: 14px; }
-      .nav a { padding: 6px 9px; font-size: 14px; }
-    }
-    @media (max-width: 460px) {
-      .nav a { padding: 6px 7px; font-size: 13px; }
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-weight: 750; cursor: pointer; }
+    .btn:hover { background: var(--bg-2); }
+    .btn-primary { background: var(--text); border-color: var(--text); color: #fff; }
+    .btn-primary:hover { background: #000; }
+    .btn-green { background: var(--green); border-color: var(--green); color: #fff; }
+    .btn-green:hover { background: var(--green-dark); }
 
-    /* ===== hero ===== */
-    .hero { padding: 64px 0 40px; }
-    .hero h1 {
-      font-size: clamp(40px, 7.5vw, 76px);
-      line-height: 1.02;
-      margin-bottom: 24px;
-      max-width: 14ch;
-    }
-    .hero .lead {
-      font-size: clamp(18px, 2.2vw, 22px);
-      line-height: 1.4;
-      max-width: 620px;
-      margin-bottom: 12px;
-    }
-    .hero .sub {
-      color: var(--muted);
-      max-width: 620px;
-      margin-bottom: 32px;
-    }
+    .hero { padding: 66px 0 34px; }
+    .hero h1 { max-width: 12ch; font-size: clamp(44px, 7vw, 78px); margin-bottom: 22px; }
+    .hero .lead { max-width: 720px; font-size: clamp(19px, 2.4vw, 25px); line-height: 1.35; margin-bottom: 12px; }
+    .hero .sub { max-width: 690px; color: var(--muted); margin-bottom: 30px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
-    /* ===== buttons ===== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-size: 16px;
-      font-weight: 500;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
-      transition: transform 0.06s, background 0.15s, border-color 0.15s;
+    .steps-grid, .cats-grid, .small-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card, .step, .cat, .about-card, .creator-card, .faq-card, .sloika-card, .random-card, .issue, .fresh-banner, .block {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
     }
-    .btn:hover { background: var(--bg-2); }
-    .btn:active { transform: translateY(1px); }
-    .btn-primary { background: var(--text); color: #fff; border-color: var(--text); }
-    .btn-primary:hover { background: #000; color: #fff; }
-    .btn-tg { background: var(--green); color: #fff; border-color: var(--green); }
-    .btn-tg:hover { background: var(--green-dark); color: #fff; }
+    .step, .cat, .about-card, .creator-card, .faq-card { padding: 22px; }
+    .step-num { margin-bottom: 10px; color: var(--green-dark); font-size: 13px; font-weight: 800; }
+    .step h3, .cat h3, .faq-card h3 { margin-bottom: 8px; font-size: 20px; }
+    .step p, .cat p, .about-card p, .creator-card p, .faq-card p { color: var(--muted); font-size: 15.5px; }
 
-    /* ===== covers (мозаика тайлов) ===== */
-    .cover {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      height: 180px;
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .cover .tile {
-      display: grid;
-      place-items: center;
-      font-size: 44px;
-    }
-    @media (max-width: 700px) {
-      .cover { height: 120px; }
-      .cover .tile { font-size: 30px; }
-    }
-
-    .cover.mosaic {
-      grid-template-columns: 1fr 1fr 1.4fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      height: 260px;
-    }
+    .cover { display: grid; grid-template-columns: repeat(5, 1fr); height: 150px; overflow: hidden; border-radius: var(--radius); }
+    .cover.mosaic { grid-template-columns: 1fr 1fr 1.2fr 1fr; grid-template-rows: 1fr 1fr; height: 230px; }
     .cover.mosaic .tile:nth-child(1) { grid-column: 1 / 2; grid-row: 1 / 2; }
     .cover.mosaic .tile:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
     .cover.mosaic .tile:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 2; }
@@ -220,835 +110,274 @@
     .cover.mosaic .tile:nth-child(5) { grid-column: 1 / 3; grid-row: 2 / 3; }
     .cover.mosaic .tile:nth-child(6) { grid-column: 3 / 4; grid-row: 2 / 3; }
     .cover.mosaic .tile:nth-child(7) { grid-column: 4 / 5; grid-row: 2 / 3; }
-    .cover.mosaic .tile { font-size: 52px; }
-    @media (max-width: 700px) {
-      .cover.mosaic { height: 180px; }
-      .cover.mosaic .tile { font-size: 32px; }
-    }
+    .tile { display: grid; place-items: center; min-width: 0; padding: 12px; text-align: center; font-size: 17px; font-weight: 800; line-height: 1.14; color: rgba(30,30,30,.82); }
+    .tile span { max-width: 100%; overflow-wrap: anywhere; }
+    .t-cream { background: #F4ECDD; } .t-yellow { background: var(--yellow-soft); } .t-green { background: #ECF2EB; } .t-pink { background: var(--pink-soft); } .t-blue { background: var(--blue-soft); } .t-sand { background: var(--sand); } .t-mint { background: var(--mint); } .t-rose { background: var(--rose); }
 
-    .t-cream    { background: #F4ECDD; }
-    .t-yellow   { background: var(--yellow-soft); }
-    .t-yellow-2 { background: var(--peach); }
-    .t-green    { background: var(--green-soft); }
-    .t-green-2  { background: var(--mint); }
-    .t-pink     { background: var(--pink-soft); }
-    .t-pink-2   { background: var(--rose); }
-    .t-blue     { background: var(--blue-soft); }
-    .t-sand     { background: var(--sand); }
-    .t-mint     { background: var(--mint); }
-
-    /* ===== layout: sidebar + content ===== */
-    .layout {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 56px;
-      align-items: start;
-      padding: 16px 0 64px;
-    }
-    @media (max-width: 900px) {
-      .layout { display: block; padding: 16px 0 48px; }
-    }
-
-    /* ===== sidebar (filters) ===== */
-    .sidebar {
-      align-self: start;
-      position: sticky;
-      top: 76px;
-      max-height: calc(100vh - 96px);
-      overflow-y: auto;
-      padding: 40px 0;
-    }
-    .sidebar h4 {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-    .sidebar .filter-block { margin-bottom: 28px; }
-    .sidebar .filter-block:last-of-type { margin-bottom: 16px; }
-
-    .sidebar-toggle { display: none; }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--bg-2);
-      border: 1px solid transparent;
-      font-size: 14px;
-      color: var(--text);
-      cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s;
-    }
-    .chip:hover { background: #ebe3d2; }
-    .chip .count {
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
-      font-size: 13px;
-    }
-    .chip.active {
-      background: var(--text);
-      color: #fff;
-      border-color: var(--text);
-    }
-    .chip.active .count { color: rgba(255, 255, 255, 0.7); }
-    .chip.is-empty {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-    .chip.is-empty:hover { background: var(--bg-2); }
-
-    .filters-reset {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: transparent;
-      border: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--muted);
-      cursor: pointer;
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
-    }
-    .filters-reset:hover {
-      color: var(--text);
-      border-color: var(--muted);
-      background: var(--card);
-    }
-    .filters-reset[hidden] { display: none; }
-
-    @media (max-width: 900px) {
-      .sidebar {
-        position: static;
-        max-height: none;
-        overflow: visible;
-        padding: 24px 0 0;
-      }
-      .sidebar-toggle {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        padding: 14px 18px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--muted);
-        cursor: pointer;
-      }
-      .sidebar-content { display: none; padding-top: 18px; }
-      .sidebar.open .sidebar-content { display: block; }
-      .sidebar.open .chevron { transform: rotate(180deg); }
-      .chevron { display: inline-block; transition: transform 0.2s; }
-    }
-
-    /* ===== content sections ===== */
-    .content > section { padding: 32px 0; }
-    .content > section:first-child { padding-top: 24px; }
-
-    /* ===== fresh issue ===== */
-    .fresh-banner {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
+    .fresh-banner { overflow: hidden; }
     .fresh-banner .cover { border-radius: 0; }
-    .fresh-banner .info { padding: 28px; }
-    .fresh-banner .meta {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-    .fresh-banner h3 {
-      font-size: clamp(24px, 3.5vw, 32px);
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-    .fresh-banner p {
-      color: var(--muted);
-      max-width: 65ch;
-      margin-bottom: 20px;
-    }
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 22px;
-    }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 6px 11px;
-      border-radius: 999px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    @media (max-width: 600px) { .fresh-banner .info { padding: 22px; } }
+    .fresh-info { padding: 30px; }
+    .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; color: var(--muted); font-size: 14px; }
+    .fresh-info h2 { max-width: 780px; margin-bottom: 14px; font-size: clamp(30px, 4vw, 44px); }
+    .fresh-info p { max-width: 760px; margin-bottom: 20px; color: var(--muted); font-size: 18px; }
 
-    /* ===== issues feed ===== */
-    .month {
-      font-size: clamp(28px, 4.5vw, 40px);
-      line-height: 1.05;
-      margin: 8px 0 24px;
-      letter-spacing: -0.025em;
+    .tag-row, .issue-tags, .marks, .filter-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag, .mark {
+      display: inline-flex; align-items: center; min-height: 34px; padding: 6px 11px; border-radius: 999px;
+      background: var(--bg); border: 1px solid var(--border); color: var(--muted); font-size: 13px; line-height: 1; white-space: nowrap;
     }
-    .issue-list {
-      display: grid;
-      gap: 32px;
-    }
-    .issue { display: block; }
-    .issue .cover { transition: transform 0.2s ease; }
-    .issue:hover .cover { transform: translateY(-2px); }
-    .issue-meta {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin: 14px 0 6px;
-      flex-wrap: wrap;
-    }
-    .issue-meta .num { font-size: 16px; font-weight: 700; }
-    .issue-meta .date {
-      font-size: 14px;
-      color: var(--muted);
-      margin-left: auto;
-    }
-    .issue h3 {
-      font-size: clamp(20px, 2.4vw, 24px);
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-    .issue p {
-      color: var(--muted);
-      max-width: 65ch;
-      margin-bottom: 12px;
-    }
-    .issue-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-row { max-width: 760px; margin-bottom: 24px; }
 
-    .empty-state {
-      background: var(--card);
-      border: 1px dashed var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      text-align: center;
-      color: var(--muted);
-    }
-    .empty-state[hidden] { display: none; }
+    .detail-title { margin-bottom: 18px; font-size: clamp(32px, 5vw, 54px); }
+    .intro { max-width: 780px; margin-bottom: 18px; color: var(--muted); font-size: 18px; }
+    .intro-list { max-width: 780px; margin: 0 0 30px; padding: 0; list-style: none; }
+    .intro-list li { position: relative; padding: 7px 0 7px 20px; }
+    .intro-list li::before { content: ""; position: absolute; left: 0; top: 18px; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    .block { padding: 24px; margin-bottom: 14px; }
+    .block-kicker { margin-bottom: 8px; color: var(--muted); font-weight: 700; font-size: 14px; }
+    .block h3 { margin-bottom: 12px; font-size: 24px; }
+    .block p { max-width: 760px; }
+    .marks { margin-bottom: 14px; }
 
-    /* ===== issue detail ===== */
-    .detail-banner { margin: 8px 0 24px; }
-    .detail-banner .cover { border-radius: var(--radius); }
-    .detail-num {
-      font-size: clamp(24px, 3.5vw, 32px);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      margin-bottom: 6px;
-    }
-    .detail-title {
-      font-size: clamp(28px, 4.5vw, 44px);
-      line-height: 1.05;
-      margin-bottom: 22px;
-      letter-spacing: -0.03em;
-    }
-    .intro {
-      font-size: 18px;
-      max-width: 65ch;
-      margin-bottom: 16px;
-    }
-    .intro-list {
-      margin: 0 0 32px;
-      padding: 0;
-      list-style: none;
-      max-width: 65ch;
-    }
-    .intro-list li {
-      padding: 8px 0 8px 18px;
-      position: relative;
-    }
-    .intro-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 18px;
-      width: 6px;
-      height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-    }
+    .filters-panel { margin-bottom: 24px; padding: 22px; border-radius: var(--radius); background: rgba(255,255,255,.54); border: 1px solid var(--border); }
+    .filters-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+    .filters-head h2 { font-size: clamp(28px, 4vw, 40px); }
+    .filter-group { margin-top: 14px; }
+    .filter-group h3 { margin-bottom: 8px; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    .chip { display: inline-flex; gap: 6px; align-items: center; min-height: 36px; padding: 7px 12px; border: 0; border-radius: 999px; background: var(--bg-2); color: var(--text); font-size: 14px; cursor: pointer; }
+    .chip:hover { background: #eae1d0; }
+    .chip.active { background: var(--text); color: #fff; }
+    .chip .count { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .chip.active .count { color: rgba(255,255,255,.72); }
+    .chip.is-empty { opacity: .38; cursor: not-allowed; }
+    .filters-reset { min-height: 34px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; }
+    .filters-reset[hidden], .empty-state[hidden] { display: none; }
 
-    .block {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 26px;
-      margin-bottom: 14px;
-      scroll-margin-top: 90px;
-    }
-    .block-kicker {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-    .block h3 {
-      font-size: 22px;
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-    .marks {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-    .mark {
-      font-size: 13px;
-      color: var(--muted);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 4px 10px;
-      border-radius: 8px;
-    }
-    .block p { max-width: 65ch; }
-    @media (max-width: 600px) { .block { padding: 22px; } }
+    .issue-list { display: grid; gap: 28px; }
+    .issue { display: block; overflow: hidden; }
+    .issue .cover { border-radius: 0; }
+    .issue-body { padding: 22px 24px 24px; }
+    .issue h3 { margin-bottom: 10px; font-size: clamp(23px, 3vw, 32px); }
+    .issue p { max-width: 760px; margin-bottom: 14px; color: var(--muted); }
+    .issue.is-locked { cursor: default; }
+    .issue.is-locked:hover { transform: none; }
+    .empty-state { padding: 28px; border-radius: var(--radius); background: var(--card); border: 1px dashed var(--border); color: var(--muted); text-align: center; }
 
-    /* ===== categories ===== */
-    .cats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-    }
-    .cat {
-      display: block;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      transition: border-color 0.15s, transform 0.06s;
-    }
-    .cat:hover { border-color: #d8cdb9; transform: translateY(-1px); }
-    .cat .ic { font-size: 28px; margin-bottom: 10px; display: block; }
-    .cat h3 { font-size: 18px; margin-bottom: 6px; }
-    .cat p { color: var(--muted); font-size: 15px; max-width: 40ch; }
+    .cat .ic { display: block; margin-bottom: 10px; font-size: 28px; }
+    .about-card, .creator-card { max-width: 920px; }
+    .about-card p + p, .creator-card p + p { margin-top: 12px; }
 
-    /* ===== random ===== */
-    .random-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-    }
-    .random-card h2 {
-      font-size: clamp(24px, 3.5vw, 32px);
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-    .random-card .desc {
-      color: var(--muted);
-      max-width: 580px;
-      margin-bottom: 22px;
-    }
-    .idea-box {
-      background: var(--yellow-soft);
-      border: 1px solid #efddb1;
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-top: 22px;
-    }
-    .idea-box.hidden { display: none; }
-    .idea-box h3 { font-size: 22px; margin-bottom: 10px; }
-    .idea-box p { margin-bottom: 14px; max-width: 60ch; }
-    .idea-box .marks { display: flex; flex-wrap: wrap; gap: 6px; }
-    @media (max-width: 600px) {
-      .random-card { padding: 24px; }
-      .idea-box { padding: 20px; }
-    }
+    .random-card { padding: 30px; }
+    .random-card h2 { margin-bottom: 10px; font-size: clamp(28px, 4vw, 40px); }
+    .random-card .desc { max-width: 650px; margin-bottom: 20px; color: var(--muted); }
+    .idea-box { display: none; margin-top: 22px; padding: 22px; border: 1px solid #efddb1; border-radius: var(--radius); background: var(--yellow-soft); }
+    .idea-box.show { display: block; }
+    .idea-box h3 { margin-bottom: 10px; font-size: 24px; }
+    .idea-box p { max-width: 680px; margin-bottom: 14px; }
 
-    /* ===== telegram ===== */
-    .tg-card {
-      background: var(--green);
-      border-radius: var(--radius);
-      padding: 36px;
-      color: #fff;
-    }
-    .tg-card .kicker { color: rgba(255, 255, 255, 0.75); margin-bottom: 14px; }
-    .tg-card h2 {
-      font-size: clamp(26px, 3.5vw, 34px);
-      line-height: 1.05;
-      margin-bottom: 14px;
-      max-width: 14ch;
-    }
-    .tg-card p { max-width: 56ch; margin-bottom: 24px; opacity: 0.95; }
-    .tg-card .btn {
-      background: #fff;
-      color: var(--green-dark);
-      border-color: #fff;
-    }
-    .tg-card .btn:hover { background: #f4f4f4; }
-    @media (max-width: 600px) { .tg-card { padding: 26px; } }
+    .sloika-card { padding: 34px; background: var(--green); color: #fff; }
+    .sloika-card .kicker { color: rgba(255,255,255,.72); }
+    .sloika-card h2 { max-width: 720px; margin-bottom: 14px; font-size: clamp(30px, 4vw, 44px); }
+    .sloika-card p { max-width: 760px; margin-bottom: 22px; opacity: .94; }
+    .sloika-card .btn { background: #fff; border-color: #fff; color: var(--green-dark); }
 
-    /* ===== footer ===== */
-    footer {
-      padding: 40px 0 60px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
-    .footer-inner a:hover { color: var(--text); }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    footer { padding: 38px 0 58px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--text); }
 
-    /* ===== mobile tweaks ===== */
-    @media (max-width: 600px) {
-      section { padding: 40px 0; }
-      .hero { padding: 48px 0 32px; }
-      body { font-size: 16px; }
+    @media (max-width: 820px) {
+      .header-inner { align-items: flex-start; flex-direction: column; padding: 12px 18px; }
+      .nav { justify-content: flex-start; }
       .container { padding: 0 18px; }
+      .hero { padding-top: 46px; }
+      section { padding: 42px 0; }
+      .steps-grid, .cats-grid, .small-grid, .faq-grid { grid-template-columns: 1fr; }
+      .cover, .cover.mosaic { height: auto; min-height: 132px; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .cover.mosaic .tile:nth-child(n) { grid-column: auto; grid-row: auto; }
+      .tile { min-height: 70px; font-size: 15px; }
+      .fresh-info, .issue-body, .block, .random-card, .sloika-card, .about-card, .creator-card, .faq-card, .step, .cat, .filters-panel { padding: 20px; }
+      .tag, .mark { white-space: normal; line-height: 1.2; }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Мама, я гуляю",
+        "url": "https://example.com/",
+        "description": "Короткие дайджесты для родителей: игры, книги, прогулки, полезные ссылки и идеи на сегодня.",
+        "inLanguage": "ru-RU",
+        "publisher": { "@id": "https://example.com/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://example.com/#person",
+        "name": "Михаил Проскурин",
+        "url": "https://proskurin.online/proskurin-mikhail",
+        "jobTitle": "digital-предприниматель, разработчик webapp и Telegram-приложений"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Слойка",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Telegram",
+        "url": "https://t.me/sloika_ibot",
+        "description": "Telegram-бот и приложение, которое помогает родителям понять, как одеть ребёнка по погоде перед прогулкой."
+      },
+      {
+        "@type": "Article",
+        "headline": "Облака, тени и маленькая экспедиция до магазина",
+        "datePublished": "2026-05-03",
+        "author": { "@id": "https://example.com/#person" },
+        "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Что такое “Мама, я гуляю”?", "acceptedAnswer": { "@type": "Answer", "text": "Это сайт с короткими дайджестами для родителей: идеи для прогулок, игры на улице, книги, полезные ссылки, задания для детей и находки." } },
+          { "@type": "Question", "name": "Что такое Слойка?", "acceptedAnswer": { "@type": "Answer", "text": "Слойка — Telegram-бот и приложение, которое помогает понять, как одеть ребёнка по погоде перед прогулкой." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <div class="promo">Перед прогулкой можно открыть <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Слойку</a>: бот подскажет, как одеть ребёнка по погоде.</div>
 
-  <!-- ===== promo ===== -->
-  <div class="promo">
-    Свежие выпуски — в Telegram, по вторникам и пятницам. <a href="#telegram">Подписаться →</a>
-  </div>
-
-  <!-- ===== header ===== -->
   <header class="header">
     <div class="header-inner">
-      <a href="#top" class="logo">
-        <span class="logo-mark">🍃</span>
-        Мама, я гуляю
-      </a>
-      <nav class="nav">
+      <a class="logo" href="#top"><span class="logo-mark">🍃</span><span>Мама, я гуляю</span></a>
+      <nav class="nav" aria-label="Основная навигация">
         <a href="#today">Сегодня</a>
         <a href="#issues">Выпуски</a>
         <a href="#categories">Рубрики</a>
-        <a href="#random">Рандом</a>
-        <a href="#telegram">Telegram</a>
+        <a href="#random">Идея</a>
+        <a href="#sloika">Слойка</a>
+        <a href="#creator">Создатель</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-
-    <!-- ===== hero ===== -->
     <section class="hero">
       <div class="container">
         <h1>Мама, я гуляю</h1>
-        <p class="lead">Короткие дайджесты для родителей: игры, книги, прогулки, полезные ссылки и идеи на сегодня.</p>
-        <p class="sub">Новый выпуск — два раза в неделю. Без морализаторства, марафонов осознанности и родительского героизма.</p>
+        <p class="lead">Короткие дайджесты для родителей: чем заняться с ребёнком сегодня, если времени мало, а гулять всё равно надо.</p>
+        <p class="sub">Игры, книги, прогулки, полезные ссылки, промокоды и маленькие задания. Новый выпуск — пару раз в неделю.</p>
         <div class="hero-actions">
-          <a href="#today" class="btn btn-primary">Читать свежий выпуск</a>
-          <a href="#telegram" class="btn btn-tg">Подписаться в Telegram</a>
+          <a class="btn btn-primary" href="#today">Читать свежий выпуск</a>
+          <a class="btn btn-green" href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Открыть Слойку</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== layout: sidebar + content ===== -->
-    <div class="container">
-      <div class="layout">
-
-        <!-- sidebar with filters -->
-        <aside class="sidebar" id="filters">
-          <button class="sidebar-toggle" type="button" aria-expanded="false">
-            <span>Быстрые фильтры</span>
-            <span class="chevron">▾</span>
-          </button>
-          <div class="sidebar-content">
-            <div class="kicker" style="margin-bottom: 18px;">Быстрые фильтры</div>
-
-            <div class="filter-block">
-              <h4>Рубрики</h4>
-              <div class="chip-row">
-                <button class="chip" data-group="cats" data-filter="books">Книжка-пятиминутка <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="walks">Игры на улице <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="day">Какой сегодня день <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="useful">Полезное <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="podcasts">Подкасты <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="promo">Промокоды <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="weekends">Выходные <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="tasks">Маленькие задания <span class="count"></span></button>
-              </div>
-            </div>
-
-            <div class="filter-block">
-              <h4>Возраст</h4>
-              <div class="chip-row">
-                <button class="chip" data-group="ages" data-filter="age-03">0–3 <span class="count"></span></button>
-                <button class="chip" data-group="ages" data-filter="age-35">3–5 <span class="count"></span></button>
-                <button class="chip" data-group="ages" data-filter="age-57">5–7 <span class="count"></span></button>
-                <button class="chip" data-group="ages" data-filter="age-7p">7+ <span class="count"></span></button>
-              </div>
-            </div>
-
-            <div class="filter-block">
-              <h4>Ситуация</h4>
-              <div class="chip-row">
-                <button class="chip" data-group="sits" data-filter="tired">Сил нет <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="5min">5 минут <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="noprep">Без подготовки <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="stroller">Можно с коляской <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="yard">Во дворе <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="road">В дороге <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="home">Дома <span class="count"></span></button>
-                <button class="chip" data-group="sits" data-filter="cold">На улице холодно <span class="count"></span></button>
-              </div>
-            </div>
-
-            <button class="filters-reset" type="button" hidden>× Сбросить</button>
-          </div>
-        </aside>
-
-        <!-- content -->
-        <div class="content">
-
-          <!-- fresh issue -->
-          <section>
-            <div class="kicker">Свежий выпуск</div>
-            <article class="fresh-banner">
-              <div class="cover mosaic">
-                <div class="tile t-blue">💧</div>
-                <div class="tile t-cream">📖</div>
-                <div class="tile t-yellow">🥃</div>
-                <div class="tile t-pink">🌧</div>
-                <div class="tile t-sand">⏳</div>
-                <div class="tile t-green">🎧</div>
-                <div class="tile t-pink-2">🎁</div>
-              </div>
-              <div class="info">
-                <div class="meta">
-                  <span class="hl">№001</span>
-                  <span>3 мая 2026</span>
-                </div>
-                <h3>Лужи, книжка на 5 минут и день гранёного стакана</h3>
-                <p>Внутри: простая игра на прогулку, короткая книжка перед сном, странный повод дня, полезная статья и маленькое задание для ребёнка.</p>
-                <div class="tag-row">
-                  <span class="tag">📚 Книжка</span>
-                  <span class="tag">🌳 Игра</span>
-                  <span class="tag">🗓 День</span>
-                  <span class="tag">🧠 Полезное</span>
-                  <span class="tag">🎧 Послушать</span>
-                  <span class="tag">🎁 Находка</span>
-                  <span class="tag">🧺 Задание</span>
-                </div>
-                <a href="#today" class="btn btn-primary">Открыть выпуск</a>
-              </div>
-            </article>
-          </section>
-
-          <!-- issues feed -->
-          <section id="issues">
-            <div class="kicker">Выпуски</div>
-            <h2 class="month">Апрель 2026</h2>
-
-            <div class="issue-list">
-
-              <a class="issue" href="#" data-cats="walks tasks" data-ages="age-35 age-57" data-sits="5min noprep road">
-                <div class="cover">
-                  <div class="tile t-blue">☁️</div>
-                  <div class="tile t-yellow">🌤</div>
-                  <div class="tile t-cream">🛒</div>
-                  <div class="tile t-pink">👀</div>
-                  <div class="tile t-sand">🌥</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№005</span>
-                  <span class="date">28 апреля</span>
-                </div>
-                <h3>Облака, тени и маленькая экспедиция до магазина</h3>
-                <p>Игра про облака, короткая прогулка по дороге за продуктами и задание на внимательность.</p>
-                <div class="issue-tags">
-                  <span class="tag">улица</span>
-                  <span class="tag">5 минут</span>
-                  <span class="tag">3–6 лет</span>
-                  <span class="tag">без подготовки</span>
-                </div>
-              </a>
-
-              <a class="issue" href="#" data-cats="weekends useful" data-ages="age-35 age-57" data-sits="home tired">
-                <div class="cover">
-                  <div class="tile t-cream">☕️</div>
-                  <div class="tile t-pink">🛋</div>
-                  <div class="tile t-sand">🚇</div>
-                  <div class="tile t-yellow">🥐</div>
-                  <div class="tile t-pink-2">🎈</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№004</span>
-                  <span class="date">25 апреля</span>
-                </div>
-                <h3>Выходные без логистического ада</h3>
-                <p>Что сделать дома, куда выбраться на пару часов и как не превращать субботу в семейный спецпроект.</p>
-                <div class="issue-tags">
-                  <span class="tag">выходные</span>
-                  <span class="tag">дома</span>
-                  <span class="tag">куда сходить</span>
-                  <span class="tag">сил немного</span>
-                </div>
-              </a>
-
-              <a class="issue" href="#" data-cats="walks books podcasts" data-ages="age-03 age-35" data-sits="yard tired">
-                <div class="cover">
-                  <div class="tile t-green">🌳</div>
-                  <div class="tile t-yellow">🛝</div>
-                  <div class="tile t-pink">🎧</div>
-                  <div class="tile t-sand">🪨</div>
-                  <div class="tile t-cream">📚</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№003</span>
-                  <span class="date">21 апреля</span>
-                </div>
-                <h3>Что делать во дворе, если взрослый уже устал</h3>
-                <p>Идея для короткой прогулки, книжка на вечер и подкаст, который можно слушать, пока ребёнок собирает палки.</p>
-                <div class="issue-tags">
-                  <span class="tag">двор</span>
-                  <span class="tag">сил нет</span>
-                  <span class="tag">0–3</span>
-                  <span class="tag">3–5</span>
-                </div>
-              </a>
-
-              <a class="issue" href="#" data-cats="walks day tasks" data-ages="age-35 age-57" data-sits="noprep yard">
-                <div class="cover">
-                  <div class="tile t-green">🍃</div>
-                  <div class="tile t-green-2">🌿</div>
-                  <div class="tile t-sand">🪵</div>
-                  <div class="tile t-yellow">🌼</div>
-                  <div class="tile t-mint">🟢</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№002</span>
-                  <span class="date">18 апреля</span>
-                </div>
-                <h3>Палки, листья и прогулка без героизма</h3>
-                <p>Простая игра с природными фактурами, день одуванчика и маленькое задание на поиск зелёных оттенков.</p>
-                <div class="issue-tags">
-                  <span class="tag">природа</span>
-                  <span class="tag">улица</span>
-                  <span class="tag">2–6 лет</span>
-                  <span class="tag">без реквизита</span>
-                </div>
-              </a>
-
-              <a class="issue" href="#today" data-cats="books walks day useful podcasts promo tasks" data-ages="age-35 age-57" data-sits="5min noprep">
-                <div class="cover">
-                  <div class="tile t-blue">💧</div>
-                  <div class="tile t-cream">📖</div>
-                  <div class="tile t-yellow">🥃</div>
-                  <div class="tile t-pink">🌧</div>
-                  <div class="tile t-sand">⏳</div>
-                </div>
-                <div class="issue-meta">
-                  <span class="hl num">№001</span>
-                  <span class="date">14 апреля</span>
-                </div>
-                <h3>Лужи, книжка на 5 минут и день гранёного стакана</h3>
-                <p>Первый выпуск: прогулочная игра, странный праздник, полезная мысль и задание на наблюдательность.</p>
-                <div class="issue-tags">
-                  <span class="tag">лужи</span>
-                  <span class="tag">книга</span>
-                  <span class="tag">день</span>
-                  <span class="tag">подкаст</span>
-                </div>
-              </a>
-
-            </div>
-
-            <div class="empty-state" hidden>
-              По выбранным фильтрам пока ничего нет. Попробуйте снять часть тегов.
-            </div>
-          </section>
-
-          <!-- issue detail -->
-          <section id="today">
-            <div class="kicker">Полная версия</div>
-
-            <div class="detail-banner">
-              <div class="cover mosaic">
-                <div class="tile t-blue">💧</div>
-                <div class="tile t-cream">📖</div>
-                <div class="tile t-yellow">🥃</div>
-                <div class="tile t-pink">🌧</div>
-                <div class="tile t-sand">⏳</div>
-                <div class="tile t-green">🎧</div>
-                <div class="tile t-pink-2">🎁</div>
-              </div>
-            </div>
-
-            <h2 class="detail-num">Мама, я гуляю <span class="hl">№001</span></h2>
-            <h2 class="detail-title">Лужи, книжка на 5 минут и день гранёного стакана</h2>
-
-            <p class="intro">Сегодня без героизма. Одна простая игра для прогулки, одна книжка на вечер, один странный повод дня и пара полезных ссылок для взрослых, которые держатся бодро, но уже не железные.</p>
-
-            <p class="intro" style="color: var(--muted); margin-bottom: 14px;">Что внутри:</p>
-            <ul class="intro-list">
-              <li>Книжка на 5 минут — «Очень голодная гусеница»</li>
-              <li>Игра на улице — «Листик, камешек, палочка»</li>
-              <li>Какой сегодня день — день гранёного стакана</li>
-              <li>Полезная мысль про короткую прогулку</li>
-              <li>Подкаст для дороги</li>
-              <li>Находка недели — приличный дождевик</li>
-              <li>Маленькое задание для ребёнка</li>
-            </ul>
-
-            <div class="block">
-              <div class="block-kicker">📚 Книжка-пятиминутка</div>
-              <h3>«Очень голодная гусеница»</h3>
-              <div class="marks">
-                <span class="mark">Возраст: 2–5 лет</span>
-                <span class="mark">Время: 5 минут</span>
-                <span class="mark">Силы взрослого: почти не нужны</span>
-              </div>
-              <p>Короткая, ритмичная и понятная история, которую удобно читать перед сном или после прогулки. Хорошо работает, когда ребёнок ещё не готов «просто лечь», а взрослый уже почти готов.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🌳 Игра на улице</div>
-              <h3>«Листик, камешек, палочка»</h3>
-              <div class="marks">
-                <span class="mark">Возраст: 2–6 лет</span>
-                <span class="mark">Где: двор, парк, дорога до магазина</span>
-                <span class="mark">Время: 10 минут</span>
-                <span class="mark">Силы взрослого: низкие</span>
-              </div>
-              <p>Найдите на прогулке три предмета: листик, камешек и палочку. Не собираем мешок природных сокровищ домой, а рассматриваем: что гладкое, что шершавое, что лёгкое, что тяжёлое. Для детей постарше можно усложнить: найти самый маленький камешек, самый странный листик и палочку, похожую на волшебную.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🗓 Какой сегодня день</div>
-              <h3>«День гранёного стакана»</h3>
-              <div class="marks">
-                <span class="mark">Формат: повод поговорить</span>
-                <span class="mark">Возраст: любой</span>
-                <span class="mark">Время: 3 минуты</span>
-              </div>
-              <p>Неофициальный повод поговорить с ребёнком о вещах из прошлого. Почему у бабушки такие стаканы? Почему стакан может быть и чашкой, и меркой, и вазой? Мини-задание: найдите дома предмет, который старше ребёнка. А если повезёт — старше родителей.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🧠 Полезное</div>
-              <h3>«Короткая прогулка тоже считается»</h3>
-              <div class="marks">
-                <span class="mark">Для кого: взрослым</span>
-                <span class="mark">Время чтения: 2 минуты</span>
-              </div>
-              <p>Иногда прогулка не обязана быть развивающей, насыщенной и красиво оформленной. Можно просто выйти на 20 минут, пройтись до дерева, посмотреть на машины, потрогать мокрый лист и вернуться домой. Это тоже прогулка. И это тоже нормально.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🎧 Послушать</div>
-              <h3>«Подкаст для дороги»</h3>
-              <div class="marks">
-                <span class="mark">Формат: аудио</span>
-                <span class="mark">Когда: дорога, коляска, уборка</span>
-              </div>
-              <p>Один спокойный выпуск на 20–30 минут: про книги, город, психологию, историю или обычную взрослую жизнь. То, что можно включить, пока ребёнок спит в коляске, играет рядом или собирается на улицу уже 47 минут.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🎁 Находка недели</div>
-              <h3>«Дождевик, который не выглядит как пакет»</h3>
-              <div class="marks">
-                <span class="mark">Формат: вещь</span>
-                <span class="mark">Ситуация: межсезонье</span>
-              </div>
-              <p>Полезная штука для межсезонья: занимает мало места и спасает прогулку, когда погода решила устроить воспитательный момент. Здесь может быть ссылка на товар, промокод или партнёрская подборка.</p>
-            </div>
-
-            <div class="block">
-              <div class="block-kicker">🧺 Маленькое задание</div>
-              <h3>«Найти на прогулке»</h3>
-              <p>На следующей прогулке найдите: что-то круглое, что-то шуршащее, что-то синее и что-то, что ребёнок сам считает красивым. Если нашли хотя бы два пункта — выпуск выполнен. Вы великолепны.</p>
-            </div>
-          </section>
-
-          <!-- categories -->
-          <section id="categories">
-            <div class="kicker">Рубрики</div>
-            <div class="cats-grid">
-              <a class="cat" href="#"><span class="ic">📚</span><h3>Книжка-пятиминутка</h3><p>Короткие книги, которые можно прочитать перед сном, после прогулки или в тот момент, когда всем нужно чуть-чуть тишины.</p></a>
-              <a class="cat" href="#"><span class="ic">🌳</span><h3>Игры на улице</h3><p>Идеи для двора, парка, дороги до магазина и прогулки «ну хоть на 20 минут». Без сложного реквизита и подготовки.</p></a>
-              <a class="cat" href="#"><span class="ic">🗓</span><h3>Какой сегодня день</h3><p>Странные, добрые и смешные поводы поговорить с ребёнком о мире.</p></a>
-              <a class="cat" href="#"><span class="ic">🧠</span><h3>Полезное</h3><p>Короткие заметки и памятки без паники, снобизма и «вы всё делаете неправильно».</p></a>
-              <a class="cat" href="#"><span class="ic">🎧</span><h3>Послушать</h3><p>Подкасты, видео и аудио для взрослых, которые можно включить на прогулке, дома или по дороге.</p></a>
-              <a class="cat" href="#"><span class="ic">🎁</span><h3>Находки</h3><p>Книги, товары, сервисы, приложения, промокоды и штуки, которые могут сделать родительский быт чуть проще.</p></a>
-            </div>
-          </section>
-
-          <!-- random -->
-          <section id="random">
-            <div class="kicker">Рандом</div>
-            <div class="random-card">
-              <h2>Мне срочно нужна идея</h2>
-              <p class="desc">Нажмите кнопку — и получите короткую идею для ребёнка. Без подготовки, сложных правил и похода в магазин за материалами.</p>
-              <button id="random-btn" class="btn btn-primary" type="button">Дать идею</button>
-              <div id="idea-box" class="idea-box hidden">
-                <h3 id="idea-title"></h3>
-                <p id="idea-text"></p>
-                <div class="marks" id="idea-marks"></div>
-              </div>
-            </div>
-          </section>
-
-          <!-- telegram -->
-          <section id="telegram">
-            <div class="tg-card">
-              <div class="kicker">Telegram</div>
-              <h2>Получать дайджесты в Telegram</h2>
-              <p>Свежие выпуски приходят 2 раза в неделю: во вторник и пятницу. Коротко, полезно, без спама и родительского пафоса.</p>
-              <a href="#" class="btn">Подписаться на бота</a>
-            </div>
-          </section>
-
+    <section id="how">
+      <div class="container">
+        <div class="kicker">Как это работает</div>
+        <div class="steps-grid">
+          <article class="step"><div class="step-num">01</div><h3>Берём короткую идею</h3><p>В каждом выпуске есть прогулка, книжка, полезная ссылка, маленькое задание или находка для родителей.</p></article>
+          <article class="step"><div class="step-num">02</div><h3>Пробуем сегодня</h3><p>Не надо готовиться как к детскому фестивалю. Большинство идей можно использовать во дворе, в дороге или дома.</p></article>
+          <article class="step"><div class="step-num">03</div><h3>Проверяем погоду</h3><p>Перед выходом можно открыть Слойку: бот подскажет, как одеть ребёнка и стоит ли героически идти в лужи.</p></article>
         </div>
       </div>
-    </div>
+    </section>
 
+    <section id="fresh">
+      <div class="container">
+        <div class="kicker">Свежий выпуск</div>
+        <article class="fresh-banner">
+          <div class="cover mosaic" aria-hidden="true">
+            <div class="tile t-blue"><span>☁️ Облака</span></div>
+            <div class="tile t-yellow"><span>Тени</span></div>
+            <div class="tile t-cream"><span>🛒 Магазин</span></div>
+            <div class="tile t-pink"><span>Книжка</span></div>
+            <div class="tile t-sand"><span>5 минут</span></div>
+            <div class="tile t-green"><span>Дорога</span></div>
+            <div class="tile t-rose"><span>Задание</span></div>
+          </div>
+          <div class="fresh-info">
+            <div class="meta"><span class="hl">№005</span><span>3 мая 2026</span></div>
+            <h2>Облака, тени и маленькая экспедиция до магазина</h2>
+            <p>Игра про облака, короткая прогулка по дороге за продуктами, спокойная идея на вечер и задание на внимательность.</p>
+            <div class="tag-row">
+              <span class="tag">🌤 Игра</span><span class="tag">🛒 По дороге</span><span class="tag">📚 Книжка</span><span class="tag">🗓 День</span><span class="tag">🧠 Полезное</span><span class="tag">🧺 Задание</span>
+            </div>
+            <a class="btn btn-primary" href="#today">Открыть выпуск</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="today">
+      <div class="container">
+        <div class="kicker">Полная версия</div>
+        <h2 class="detail-title">Мама, я гуляю <span class="hl">№005</span><br>Облака, тени и маленькая экспедиция до магазина</h2>
+        <p class="intro">Сегодня без большого плана. Берём прогулку по дороге до магазина, смотрим на облака, ищем тени, читаем короткую книжку и делаем маленькое задание на внимательность.</p>
+        <ul class="intro-list">
+          <li>Игра на улице — «Облако похоже на...»</li>
+          <li>По дороге — «Маленькая экспедиция до магазина»</li>
+          <li>Книжка-пятиминутка — «Груффало»</li>
+          <li>Какой сегодня день — день смотреть на облака</li>
+          <li>Полезное — прогулка по делу тоже считается</li>
+          <li>Находка — маленький перекус в дорогу</li>
+          <li>Маленькое задание — найти три тени</li>
+        </ul>
+
+        <article class="block"><div class="block-kicker">🌤 Игра на улице</div><h3>«Облако похоже на...»</h3><div class="marks"><span class="mark">Возраст: 3–7 лет</span><span class="mark">Где: улица, парк, дорога</span><span class="mark">Время: 5–10 минут</span><span class="mark">Силы взрослого: низкие</span></div><p>Смотрим на облака и придумываем, на кого они похожи: кита, собаку, корабль, дракона или огромную булку. Побеждает версия, от которой взрослый хотя бы немного засмеялся. Если облаков нет, играем с пятнами света, ветками или тенями.</p></article>
+        <article class="block"><div class="block-kicker">🛒 По дороге</div><h3>«Маленькая экспедиция до магазина»</h3><div class="marks"><span class="mark">Возраст: 3–7 лет</span><span class="mark">Где: дорога до магазина</span><span class="mark">Время: по пути</span><span class="mark">Подготовка: не нужна</span></div><p>Обычный поход за продуктами можно превратить в короткую экспедицию. Дайте ребёнку маленькую миссию: найти зелёную дверь, посчитать три вывески, заметить круглую ручку, выбрать яблоко или проверить, где лежит молоко.</p></article>
+        <article class="block"><div class="block-kicker">📚 Книжка-пятиминутка</div><h3>«Груффало»</h3><div class="marks"><span class="mark">Возраст: 3–7 лет</span><span class="mark">Время: 5–10 минут</span><span class="mark">Когда: перед сном или после прогулки</span></div><p>История с понятным ритмом, смешным напряжением и героем, который выкручивается не силой, а сообразительностью. Хорошо идёт вечером, когда хочется почитать что-то бодрое, но не превращать чтение в спектакль на 40 минут.</p></article>
+        <article class="block"><div class="block-kicker">🗓 Какой сегодня день</div><h3>День смотреть на облака</h3><div class="marks"><span class="mark">Формат: повод поговорить</span><span class="mark">Возраст: любой</span><span class="mark">Время: 3 минуты</span></div><p>Неофициальный повод поднять голову и обсудить, почему облака двигаются, почему они бывают серыми, белыми, тяжёлыми или почти прозрачными. Для ребёнка это наблюдение, для взрослого — редкая легальная причина просто постоять и не спешить.</p></article>
+        <article class="block"><div class="block-kicker">🧠 Полезное</div><h3>Прогулка по делу тоже считается</h3><div class="marks"><span class="mark">Для кого: взрослым</span><span class="mark">Время чтения: 2 минуты</span><span class="mark">Ситуация: мало времени</span></div><p>Не каждая прогулка обязана быть отдельным красивым событием. Дорога до магазина, путь в сад, круг вокруг дома или 15 минут во дворе — это тоже контакт с улицей, смена картинки и маленькая разгрузка.</p></article>
+        <article class="block"><div class="block-kicker">🎒 Находка недели</div><h3>Маленький перекус в дорогу</h3><div class="marks"><span class="mark">Формат: бытовая находка</span><span class="mark">Ситуация: прогулка, дорога, очередь</span></div><p>Небольшой перекус в сумке иногда спасает не только ребёнка, но и остатки взрослого достоинства. Подойдут фрукт, сухари, маленький контейнер с ягодами, сырник или то, что нормально живёт в сумке хотя бы пару часов.</p></article>
+        <article class="block"><div class="block-kicker">🧺 Маленькое задание</div><h3>Найти три тени</h3><p>На следующей прогулке найдите три разные тени: большую, смешную и почти незаметную. Можно сравнить, какая тень двигается, какая похожа на животное, а какая вообще ведёт себя подозрительно.</p></article>
+      </div>
+    </section>
+
+    <section id="issues">
+      <div class="container">
+        <div class="filters-panel">
+          <div class="filters-head">
+            <div><div class="kicker" style="margin-bottom: 10px;">Архив</div><h2>Архив выпусков</h2></div>
+            <button class="filters-reset" type="button" hidden>× Сбросить фильтры</button>
+          </div>
+          <p class="muted">Предыдущие дайджесты, которые можно открыть, когда нужно быстро найти идею.</p>
+          <div class="filter-group"><h3>Рубрики</h3><div class="filter-row"><button class="chip" data-group="cats" data-filter="books">Книжка <span class="count"></span></button><button class="chip" data-group="cats" data-filter="walks">Игры <span class="count"></span></button><button class="chip" data-group="cats" data-filter="day">День <span class="count"></span></button><button class="chip" data-group="cats" data-filter="useful">Полезное <span class="count"></span></button><button class="chip" data-group="cats" data-filter="podcasts">Подкасты <span class="count"></span></button><button class="chip" data-group="cats" data-filter="weekends">Выходные <span class="count"></span></button><button class="chip" data-group="cats" data-filter="tasks">Задания <span class="count"></span></button></div></div>
+          <div class="filter-group"><h3>Возраст</h3><div class="filter-row"><button class="chip" data-group="ages" data-filter="age-03">0–3 <span class="count"></span></button><button class="chip" data-group="ages" data-filter="age-35">3–5 <span class="count"></span></button><button class="chip" data-group="ages" data-filter="age-57">5–7 <span class="count"></span></button></div></div>
+          <div class="filter-group"><h3>Ситуация</h3><div class="filter-row"><button class="chip" data-group="sits" data-filter="tired">Сил нет <span class="count"></span></button><button class="chip" data-group="sits" data-filter="5min">5 минут <span class="count"></span></button><button class="chip" data-group="sits" data-filter="noprep">Без подготовки <span class="count"></span></button><button class="chip" data-group="sits" data-filter="yard">Во дворе <span class="count"></span></button><button class="chip" data-group="sits" data-filter="home">Дома <span class="count"></span></button><button class="chip" data-group="sits" data-filter="road">В дороге <span class="count"></span></button></div></div>
+        </div>
+
+        <div class="issue-list">
+          <article class="issue" data-cats="weekends useful" data-ages="age-35 age-57" data-sits="home tired"><div class="cover"><div class="tile t-cream"><span>Дом</span></div><div class="tile t-pink"><span>2 часа</span></div><div class="tile t-sand"><span>Маршрут</span></div><div class="tile t-yellow"><span>Выходные</span></div><div class="tile t-rose"><span>Без ада</span></div></div><div class="issue-body"><div class="meta"><span class="hl">№004</span><span>30 апреля</span></div><h3>Выходные без логистического ада</h3><p>Что сделать дома, куда выбраться на пару часов и как не превращать субботу в семейный спецпроект.</p><div class="issue-tags"><span class="tag">выходные</span><span class="tag">дома</span><span class="tag">куда сходить</span><span class="tag">сил немного</span></div></div></article>
+          <article class="issue" data-cats="walks books podcasts" data-ages="age-03 age-35" data-sits="yard tired"><div class="cover"><div class="tile t-green"><span>Двор</span></div><div class="tile t-yellow"><span>Палки</span></div><div class="tile t-pink"><span>Подкаст</span></div><div class="tile t-sand"><span>Камни</span></div><div class="tile t-cream"><span>Книга</span></div></div><div class="issue-body"><div class="meta"><span class="hl">№003</span><span>26 апреля</span></div><h3>Что делать во дворе, если взрослый уже устал</h3><p>Идея для короткой прогулки, книжка на вечер и подкаст, который можно слушать, пока ребёнок собирает палки.</p><div class="issue-tags"><span class="tag">двор</span><span class="tag">сил нет</span><span class="tag">0–3</span><span class="tag">3–5</span></div></div></article>
+          <article class="issue" data-cats="walks day tasks" data-ages="age-35 age-57" data-sits="noprep yard"><div class="cover"><div class="tile t-green"><span>Листья</span></div><div class="tile t-mint"><span>Фактуры</span></div><div class="tile t-sand"><span>Палочка</span></div><div class="tile t-yellow"><span>Одуванчик</span></div><div class="tile t-green"><span>Зелёный</span></div></div><div class="issue-body"><div class="meta"><span class="hl">№002</span><span>23 апреля</span></div><h3>Палки, листья и прогулка без героизма</h3><p>Простая игра с природными фактурами, день одуванчика и маленькое задание на поиск зелёных оттенков.</p><div class="issue-tags"><span class="tag">природа</span><span class="tag">улица</span><span class="tag">2–6 лет</span><span class="tag">без реквизита</span></div></div></article>
+          <article class="issue" data-cats="books walks day useful podcasts tasks" data-ages="age-35 age-57" data-sits="5min noprep"><div class="cover"><div class="tile t-blue"><span>Лужи</span></div><div class="tile t-cream"><span>Книжка</span></div><div class="tile t-yellow"><span>Стакан</span></div><div class="tile t-pink"><span>Дождь</span></div><div class="tile t-sand"><span>5 минут</span></div></div><div class="issue-body"><div class="meta"><span class="hl">№001</span><span>19 апреля</span></div><h3>Лужи, книжка на 5 минут и день гранёного стакана</h3><p>Первый выпуск: прогулочная игра, странный праздник, полезная мысль и задание на наблюдательность.</p><div class="issue-tags"><span class="tag">лужи</span><span class="tag">книга</span><span class="tag">день</span><span class="tag">подкаст</span></div></div></article>
+        </div>
+        <div class="empty-state" hidden>По выбранным фильтрам пока ничего нет. Попробуйте снять часть тегов.</div>
+      </div>
+    </section>
+
+    <section id="categories"><div class="container"><div class="kicker">Рубрики</div><div class="cats-grid"><article class="cat"><span class="ic">📚</span><h3>Книжка-пятиминутка</h3><p>Короткие книги, которые можно прочитать перед сном, после прогулки или когда всем нужна тишина.</p></article><article class="cat"><span class="ic">🌳</span><h3>Игры на улице</h3><p>Идеи для двора, парка, дороги до магазина и прогулки «ну хоть на 20 минут».</p></article><article class="cat"><span class="ic">🗓</span><h3>Какой сегодня день</h3><p>Странные, добрые и смешные поводы поговорить с ребёнком о мире.</p></article><article class="cat"><span class="ic">🧠</span><h3>Полезное</h3><p>Короткие заметки и памятки без паники, снобизма и «вы всё делаете неправильно».</p></article><article class="cat"><span class="ic">🎧</span><h3>Послушать</h3><p>Подкасты, видео и аудио для взрослых, которые можно включить на прогулке или дома.</p></article><article class="cat"><span class="ic">🎁</span><h3>Находки</h3><p>Книги, товары, сервисы, приложения, промокоды и штуки, которые упрощают родительский быт.</p></article></div></div></section>
+
+    <section id="about"><div class="container"><div class="kicker">О проекте</div><article class="about-card"><p>«Мама, я гуляю» — это не журнал про идеальное родительство.</p><p>Это короткие дайджесты для обычных родителей, которым иногда нужно быстро придумать: во что поиграть на улице, что почитать перед сном, чем занять ребёнка в дороге и как провести выходные без ощущения, что ты организуешь Олимпиаду.</p><p>Мы собираем простые идеи, полезные ссылки, книги, подкасты, промокоды и маленькие задания, которые можно использовать сразу.</p></article></div></section>
+
+    <section id="random"><div class="container"><div class="kicker">Идея</div><div class="random-card"><h2>Мне срочно нужна идея</h2><p class="desc">Нажмите кнопку — и получите короткую идею для ребёнка. Без подготовки, сложных правил и похода в магазин за материалами.</p><button id="random-btn" class="btn btn-primary" type="button">Дать идею</button><div id="idea-box" class="idea-box"><h3 id="idea-title"></h3><p id="idea-text"></p><div class="marks" id="idea-marks"></div></div></div></div></section>
+
+    <section id="sloika"><div class="container"><article class="sloika-card"><div class="kicker">Слойка</div><h2>А перед прогулкой можно проверить, как одеть ребёнка</h2><p>У нас есть Слойка — погодный Telegram-бот и приложение для родителей. Он помогает понять, что надеть ребёнку перед выходом: когда достаточно кофты, когда нужна куртка, а когда лучше принять реальность и взять запасные носки.</p><a class="btn" href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Открыть @sloika_ibot</a></article></div></section>
+
+    <section id="creator"><div class="container"><div class="kicker">Создатель</div><article class="creator-card"><h2>Проект сделал Михаил Проскурин</h2><p>Digital-предприниматель, разработчик webapp и Telegram-приложений, основатель Onedam и 1994lab. Делает простые цифровые продукты для медиа, брендов, социальных и семейных проектов.</p><p><a class="btn" href="https://proskurin.online/proskurin-mikhail" target="_blank" rel="noopener">Открыть страницу Михаила</a></p></article></div></section>
+
+    <section id="faq"><div class="container"><div class="kicker">FAQ</div><div class="faq-grid"><article class="faq-card"><h3>Что такое «Мама, я гуляю»?</h3><p>Короткие дайджесты для родителей с идеями для прогулок, книгами, заданиями, полезными ссылками и находками.</p></article><article class="faq-card"><h3>Что такое Слойка?</h3><p>Telegram-бот и приложение, которое помогает понять, как одеть ребёнка по погоде перед прогулкой.</p></article></div></div></section>
   </main>
 
-  <!-- ===== footer ===== -->
-  <footer>
-    <div class="container footer-inner">
-      <div>Мама, я гуляю — короткие дайджесты для родителей.</div>
-      <div class="footer-links">
-        <a href="#telegram">Telegram</a>
-        <a href="#issues">Архив</a>
-        <a href="#random">Рандом</a>
-      </div>
-    </div>
-  </footer>
+  <footer><div class="container footer-inner"><div>Мама, я гуляю — короткие дайджесты для родителей.</div><div class="footer-links"><a href="#issues">Архив</a><a href="#random">Идея</a><a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Слойка</a><a href="https://proskurin.online/proskurin-mikhail" target="_blank" rel="noopener">Создатель</a></div></div></footer>
 
   <script>
-    // ===== filters =====
     const filterState = { cats: new Set(), ages: new Set(), sits: new Set() };
     const issues = document.querySelectorAll('.issue');
     const chips = document.querySelectorAll('.chip[data-filter]');
@@ -1059,7 +388,7 @@
       chips.forEach(chip => {
         const group = chip.dataset.group;
         const value = chip.dataset.filter;
-        const attr = `data-${group}`;
+        const attr = 'data-' + group;
         let count = 0;
         issues.forEach(issue => {
           const values = (issue.getAttribute(attr) || '').split(' ').filter(Boolean);
@@ -1077,20 +406,15 @@
         const cats = (issue.getAttribute('data-cats') || '').split(' ').filter(Boolean);
         const ages = (issue.getAttribute('data-ages') || '').split(' ').filter(Boolean);
         const sits = (issue.getAttribute('data-sits') || '').split(' ').filter(Boolean);
-
         const matchCats = filterState.cats.size === 0 || [...filterState.cats].some(v => cats.includes(v));
         const matchAges = filterState.ages.size === 0 || [...filterState.ages].some(v => ages.includes(v));
         const matchSits = filterState.sits.size === 0 || [...filterState.sits].some(v => sits.includes(v));
-
         const visible = matchCats && matchAges && matchSits;
         issue.style.display = visible ? '' : 'none';
         if (visible) visibleCount++;
       });
-
       emptyState.hidden = visibleCount > 0;
-
-      const anyActive = Object.values(filterState).some(set => set.size > 0);
-      resetBtn.hidden = !anyActive;
+      resetBtn.hidden = !Object.values(filterState).some(set => set.size > 0);
     }
 
     chips.forEach(chip => {
@@ -1111,54 +435,45 @@
 
     resetBtn.addEventListener('click', () => {
       Object.values(filterState).forEach(set => set.clear());
-      document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.chip.active').forEach(chip => chip.classList.remove('active'));
       applyFilters();
     });
 
     computeCounts();
     applyFilters();
 
-    // ===== sidebar toggle (mobile) =====
-    const sidebar = document.getElementById('filters');
-    const sidebarToggle = sidebar.querySelector('.sidebar-toggle');
-    sidebarToggle.addEventListener('click', () => {
-      const open = sidebar.classList.toggle('open');
-      sidebarToggle.setAttribute('aria-expanded', String(open));
-    });
-
-    // ===== random idea =====
     const ideas = [
-      { title: "Найти 5 круглых предметов", text: "Попросите ребёнка найти вокруг 5 круглых предметов: колесо, люк, мяч, пуговицу, тарелку в витрине.", marks: ["3–6 лет", "улица", "10 минут", "сил мало"] },
-      { title: "Охота на шуршание", text: "Ищем всё, что шуршит: листья, пакет, бумажку, сухую траву. Главное — не превращать это в уборку района.", marks: ["2–5 лет", "улица", "без подготовки"] },
-      { title: "Цвет дня", text: "Выберите цвет и ищите его по дороге: красная машина, зелёная дверь, жёлтый знак.", marks: ["2–7 лет", "дорога", "5 минут"] },
-      { title: "Тихий детектив", text: "Идём 3 минуты молча и потом называем, кто что услышал: собаку, машину, птицу, шаги, ветер.", marks: ["4–7 лет", "улица", "спокойно"] },
-      { title: "Магазинная миссия", text: "По дороге в магазин ребёнок отвечает за одну категорию: найти молоко, выбрать яблоки или посчитать три пачки макарон.", marks: ["3–7 лет", "магазин", "бытовое"] },
-      { title: "Облако похоже на...", text: "Смотрим на облака и придумываем, на кого они похожи. Побеждает версия, от которой взрослый засмеялся.", marks: ["3–7 лет", "улица", "без реквизита"] }
+      { title: 'Найти 5 круглых предметов', text: 'Попросите ребёнка найти вокруг 5 круглых предметов: колесо, люк, мяч, пуговицу, тарелку в витрине.', marks: ['3–6 лет', 'улица', '10 минут', 'сил мало'] },
+      { title: 'Охота на шуршание', text: 'Ищем всё, что шуршит: листья, пакет, бумажку, сухую траву. Главное — не превращать это в уборку района.', marks: ['2–5 лет', 'улица', 'без подготовки'] },
+      { title: 'Цвет дня', text: 'Выберите цвет и ищите его по дороге: красная машина, зелёная дверь, жёлтый знак.', marks: ['2–7 лет', 'дорога', '5 минут'] },
+      { title: 'Тихий детектив', text: 'Идём 3 минуты молча и потом называем, кто что услышал: собаку, машину, птицу, шаги, ветер.', marks: ['4–7 лет', 'улица', 'спокойно'] },
+      { title: 'Магазинная миссия', text: 'По дороге в магазин ребёнок отвечает за одну категорию: найти молоко, выбрать яблоки или посчитать три пачки макарон.', marks: ['3–7 лет', 'магазин', 'бытовое'] },
+      { title: 'Облако похоже на...', text: 'Смотрим на облака и придумываем, на кого они похожи. Побеждает версия, от которой взрослый засмеялся.', marks: ['3–7 лет', 'улица', 'без реквизита'] }
     ];
 
-    const randomBtn = document.getElementById("random-btn");
-    const ideaBox = document.getElementById("idea-box");
-    const ideaTitle = document.getElementById("idea-title");
-    const ideaText = document.getElementById("idea-text");
-    const ideaMarks = document.getElementById("idea-marks");
+    const randomBtn = document.getElementById('random-btn');
+    const ideaBox = document.getElementById('idea-box');
+    const ideaTitle = document.getElementById('idea-title');
+    const ideaText = document.getElementById('idea-text');
+    const ideaMarks = document.getElementById('idea-marks');
     let lastIdeaIndex = -1;
 
-    randomBtn.addEventListener("click", () => {
-      let i = Math.floor(Math.random() * ideas.length);
-      if (ideas.length > 1 && i === lastIdeaIndex) i = (i + 1) % ideas.length;
-      lastIdeaIndex = i;
-      const idea = ideas[i];
+    randomBtn.addEventListener('click', () => {
+      let index = Math.floor(Math.random() * ideas.length);
+      if (ideas.length > 1 && index === lastIdeaIndex) index = (index + 1) % ideas.length;
+      lastIdeaIndex = index;
+      const idea = ideas[index];
       ideaTitle.textContent = idea.title;
       ideaText.textContent = idea.text;
-      ideaMarks.innerHTML = "";
-      idea.marks.forEach(m => {
-        const span = document.createElement("span");
-        span.className = "mark";
-        span.textContent = m;
+      ideaMarks.innerHTML = '';
+      idea.marks.forEach(mark => {
+        const span = document.createElement('span');
+        span.className = 'mark';
+        span.textContent = mark;
         ideaMarks.appendChild(span);
       });
-      ideaBox.classList.remove("hidden");
-      randomBtn.textContent = "Дать ещё одну";
+      ideaBox.classList.add('show');
+      randomBtn.textContent = 'Дать ещё одну';
     });
   </script>
 </body>
