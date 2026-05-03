@@ -652,7 +652,7 @@
         <a href="#issues">Выпуски</a>
         <a href="#categories">Рубрики</a>
         <a href="#random">Рандом</a>
-        <a href="#telegram">Telegram</a>
+        <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Telegram</a>
       </nav>
     </div>
   </header>
@@ -690,12 +690,13 @@
               <div class="chip-row">
                 <button class="chip" data-group="cats" data-filter="books">Книжка-пятиминутка <span class="count"></span></button>
                 <button class="chip" data-group="cats" data-filter="walks">Игры на улице <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="day">Какой сегодня день <span class="count"></span></button>
+                <button class="chip" data-group="cats" data-filter="talk">Повод поговорить <span class="count"></span></button>
                 <button class="chip" data-group="cats" data-filter="useful">Полезное <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="podcasts">Подкасты <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="promo">Промокоды <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="weekends">Выходные <span class="count"></span></button>
-                <button class="chip" data-group="cats" data-filter="tasks">Маленькие задания <span class="count"></span></button>
+                <button class="chip" data-group="cats" data-filter="listen">Послушать <span class="count"></span></button>
+                <button class="chip" data-group="cats" data-filter="watch">Посмотреть <span class="count"></span></button>
+                <button class="chip" data-group="cats" data-filter="make">Сделать руками <span class="count"></span></button>
+                <button class="chip" data-group="cats" data-filter="places">Куда сходить <span class="count"></span></button>
+                <button class="chip" data-group="cats" data-filter="finds">Находки <span class="count"></span></button>
               </div>
             </div>
 
@@ -720,6 +721,8 @@
                 <button class="chip" data-group="sits" data-filter="road">В дороге <span class="count"></span></button>
                 <button class="chip" data-group="sits" data-filter="home">Дома <span class="count"></span></button>
                 <button class="chip" data-group="sits" data-filter="cold">На улице холодно <span class="count"></span></button>
+                <button class="chip" data-group="sits" data-filter="sick">Болеем дома <span class="count"></span></button>
+                <button class="chip" data-group="sits" data-filter="queue">В кафе или очереди <span class="count"></span></button>
               </div>
             </div>
 
@@ -753,7 +756,7 @@
                 <div class="tag-row">
                   <span class="tag">📚 Книжка</span>
                   <span class="tag">🌳 Игра</span>
-                  <span class="tag">🗓 День</span>
+                  <span class="tag">🗓 Повод</span>
                   <span class="tag">🧠 Полезное</span>
                   <span class="tag">🎧 Послушать</span>
                   <span class="tag">🎁 Находка</span>
@@ -771,7 +774,7 @@
 
             <div class="issue-list">
 
-              <a class="issue" href="#" data-cats="walks tasks" data-ages="age-35 age-57" data-sits="5min noprep road">
+              <a class="issue" href="#" data-cats="walks talk" data-ages="age-35 age-57" data-sits="5min noprep road queue">
                 <div class="cover">
                   <div class="tile t-blue">☁️</div>
                   <div class="tile t-yellow">🌤</div>
@@ -793,7 +796,7 @@
                 </div>
               </a>
 
-              <a class="issue" href="#" data-cats="weekends useful" data-ages="age-35 age-57" data-sits="home tired">
+              <a class="issue" href="#" data-cats="places useful" data-ages="age-35 age-57" data-sits="home tired">
                 <div class="cover">
                   <div class="tile t-cream">☕️</div>
                   <div class="tile t-pink">🛋</div>
@@ -815,7 +818,7 @@
                 </div>
               </a>
 
-              <a class="issue" href="#" data-cats="walks books podcasts" data-ages="age-03 age-35" data-sits="yard tired">
+              <a class="issue" href="#" data-cats="walks books listen" data-ages="age-03 age-35" data-sits="yard tired">
                 <div class="cover">
                   <div class="tile t-green">🌳</div>
                   <div class="tile t-yellow">🛝</div>
@@ -837,7 +840,7 @@
                 </div>
               </a>
 
-              <a class="issue" href="#" data-cats="walks day tasks" data-ages="age-35 age-57" data-sits="noprep yard">
+              <a class="issue" href="#" data-cats="walks talk make" data-ages="age-35 age-57" data-sits="noprep yard">
                 <div class="cover">
                   <div class="tile t-green">🍃</div>
                   <div class="tile t-green-2">🌿</div>
@@ -859,7 +862,7 @@
                 </div>
               </a>
 
-              <a class="issue" href="#today" data-cats="books walks day useful podcasts promo tasks" data-ages="age-35 age-57" data-sits="5min noprep">
+              <a class="issue" href="#today" data-cats="books walks talk useful listen finds" data-ages="age-35 age-57" data-sits="5min noprep queue">
                 <div class="cover">
                   <div class="tile t-blue">💧</div>
                   <div class="tile t-cream">📖</div>
@@ -944,7 +947,7 @@
             </div>
 
             <div class="block">
-              <div class="block-kicker">🗓 Какой сегодня день</div>
+              <div class="block-kicker">🗓 Повод поговорить</div>
               <h3>«День гранёного стакана»</h3>
               <div class="marks">
                 <span class="mark">Формат: повод поговорить</span>
@@ -995,12 +998,15 @@
           <section id="categories">
             <div class="kicker">Рубрики</div>
             <div class="cats-grid">
-              <a class="cat" href="#"><span class="ic">📚</span><h3>Книжка-пятиминутка</h3><p>Короткие книги, которые можно прочитать перед сном, после прогулки или в тот момент, когда всем нужно чуть-чуть тишины.</p></a>
-              <a class="cat" href="#"><span class="ic">🌳</span><h3>Игры на улице</h3><p>Идеи для двора, парка, дороги до магазина и прогулки «ну хоть на 20 минут». Без сложного реквизита и подготовки.</p></a>
-              <a class="cat" href="#"><span class="ic">🗓</span><h3>Какой сегодня день</h3><p>Странные, добрые и смешные поводы поговорить с ребёнком о мире.</p></a>
+              <a class="cat" href="#"><span class="ic">📚</span><h3>Книжка-пятиминутка</h3><p>Книги на вечер, дорогу или момент, когда всем нужно чуть-чуть тишины.</p></a>
+              <a class="cat" href="#"><span class="ic">🌳</span><h3>Игры на улице</h3><p>Двор, парк, дорога до магазина и прогулка «ну хоть на 20 минут» без сложного реквизита.</p></a>
+              <a class="cat" href="#"><span class="ic">🗓</span><h3>Повод поговорить</h3><p>Странные даты, вопросы и маленькие темы, чтобы ребёнок заметил мир, а взрослый не читал лекцию.</p></a>
               <a class="cat" href="#"><span class="ic">🧠</span><h3>Полезное</h3><p>Короткие заметки и памятки без паники, снобизма и «вы всё делаете неправильно».</p></a>
-              <a class="cat" href="#"><span class="ic">🎧</span><h3>Послушать</h3><p>Подкасты, видео и аудио для взрослых, которые можно включить на прогулке, дома или по дороге.</p></a>
-              <a class="cat" href="#"><span class="ic">🎁</span><h3>Находки</h3><p>Книги, товары, сервисы, приложения, промокоды и штуки, которые могут сделать родительский быт чуть проще.</p></a>
+              <a class="cat" href="#"><span class="ic">🎧</span><h3>Послушать</h3><p>Подкасты, аудио и спокойный фон для взрослых, которые тоже люди.</p></a>
+              <a class="cat" href="#"><span class="ic">👀</span><h3>Посмотреть</h3><p>Мультфильмы, короткие видео, лекции и красивые штуки, которые не стыдно включить.</p></a>
+              <a class="cat" href="#"><span class="ic">✂️</span><h3>Сделать руками</h3><p>Простое творчество из того, что уже есть дома. Без закупки половины магазина.</p></a>
+              <a class="cat" href="#"><span class="ic">📍</span><h3>Куда сходить</h3><p>Места, события, выставки и прогулочные маршруты, если хочется выбраться не в никуда.</p></a>
+              <a class="cat" href="#"><span class="ic">🎁</span><h3>Находки</h3><p>Книги, товары, сервисы, приложения и промокоды, которые могут сделать быт чуть проще.</p></a>
             </div>
           </section>
 
@@ -1025,7 +1031,7 @@
               <div class="kicker">Telegram</div>
               <h2>Получать дайджесты в Telegram</h2>
               <p>Свежие выпуски приходят 2 раза в неделю: во вторник и пятницу. Коротко, полезно, без спама и родительского пафоса.</p>
-              <a href="https://t.me/sloika_ibot" class="btn" target="_blank" rel="noopener">Подписаться на бота</a>
+              <a href="https://t.me/sloika_ibot" class="btn" target="_blank" rel="noopener">Открыть @sloika_ibot</a>
             </div>
           </section>
 
