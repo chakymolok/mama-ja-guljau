@@ -424,123 +424,6 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 }
 
 
-/* HERO FIX: left copy + right issue card */
-body .hero .container {
-  max-width: 1200px;
-  display: grid !important;
-  grid-template-columns: minmax(320px, 540px) minmax(420px, 560px) !important;
-  gap: clamp(40px, 7vw, 110px) !important;
-  align-items: center !important;
-}
-
-body .hero-copy {
-  min-width: 0;
-  grid-column: 1;
-}
-
-body .hero-card-slot {
-  grid-column: 2;
-  align-self: center;
-  min-width: 0;
-}
-
-body .hero-card-slot .hero-issue-card {
-  width: 100%;
-}
-
-body .hero-issue-card {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  border-radius: 30px;
-  overflow: hidden;
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-body .hero-issue-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 24px 70px rgba(0,0,0,.12);
-}
-
-body .hero-issue-image {
-  position: relative;
-  height: 250px;
-  overflow: hidden;
-}
-
-body .hero-issue-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .25s ease;
-}
-
-body .hero-issue-card:hover .hero-issue-image img {
-  transform: scale(1.03);
-}
-
-body .hero-issue-meta {
-  position: absolute;
-  left: 18px;
-  bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  color: #fff;
-  font-weight: 800;
-  text-shadow: 0 1px 12px rgba(0,0,0,.35);
-}
-
-body .hero-issue-meta .views-badge {
-  background: rgba(255,255,255,.88);
-  text-shadow: none;
-}
-
-body .hero-issue-body {
-  padding: 28px;
-}
-
-body .hero-issue-body .kicker {
-  margin-bottom: 14px;
-}
-
-body .hero-issue-body h2 {
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
-  margin-bottom: 14px;
-}
-
-body .hero-issue-body p {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.52;
-  margin-bottom: 18px;
-}
-
-body .hero-issue-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-bottom: 22px;
-}
-
-body .hero-issue-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 13px 20px;
-  border-radius: 999px;
-  background: var(--text);
-  color: #fff;
-  font-weight: 900;
-}
-
 /* Mobile: no hero issue card. There is already a fresh digest card below. */
 @media (max-width: 920px) {
   body .hero .container {
@@ -558,6 +441,67 @@ body .hero-issue-button {
 
 /* Mobile: hide overview blocks */
 @media (max-width: 760px) {
+  #inside,
+  #rubrics,
+  #categories,
+  .inside-section,
+  .rubrics-section,
+  .categories-section {
+    display: none !important;
+  }
+}
+
+
+/* Hero clean: text only */
+body .hero {
+  min-height: auto !important;
+  padding: clamp(56px, 8vw, 96px) 0 clamp(36px, 6vw, 72px) !important;
+}
+
+body .hero .container {
+  display: block !important;
+  max-width: 1200px;
+}
+
+body .hero h1,
+body .hero .lead,
+body .hero .sub,
+body .hero-actions {
+  max-width: 620px;
+}
+
+body .hero-card-slot,
+body .hero-issue-card,
+body .hero-cover-link,
+body .hero-collage,
+body .hero-visual {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  body .hero {
+    padding: 36px 0 22px !important;
+  }
+
+  body .hero h1 {
+    margin-bottom: 18px;
+  }
+
+  body .hero .lead {
+    margin-bottom: 10px;
+  }
+
+  body .hero .sub {
+    margin-bottom: 22px;
+  }
+
+  /* Убираем пустоту между hero и первой карточкой дайджеста */
+  body .hero + section,
+  body .hero + .container,
+  body main > section:nth-of-type(2) {
+    padding-top: 12px !important;
+  }
+
   #inside,
   #rubrics,
   #categories,
