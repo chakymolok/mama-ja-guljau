@@ -386,22 +386,29 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 }
 
 
-/* Hero: text + mini issue card */
-.hero .container,
-.hero-inner,
-.hero-grid {
-  position: relative;
+/* На мобильном не показываем нижние обзорные блоки */
+@media (max-width: 760px) {
+  #inside,
+  #rubrics,
+  #categories,
+  .inside-section,
+  .rubrics-section,
+  .categories-section {
+    display: none !important;
+  }
 }
 
+
+/* Hero: текст слева, карточка выпуска справа */
 .hero .container {
   display: grid;
-  grid-template-columns: minmax(320px, 560px) minmax(360px, 560px);
-  gap: clamp(28px, 5vw, 76px);
+  grid-template-columns: minmax(320px, 560px) minmax(420px, 620px);
+  gap: clamp(36px, 6vw, 96px);
   align-items: center;
 }
 
-.hero .container > .hero-cover-link {
-  display: none !important;
+.hero-copy {
+  min-width: 0;
 }
 
 .hero-issue-card {
@@ -414,6 +421,7 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   transition: transform .18s ease, box-shadow .18s ease;
+  align-self: center;
 }
 
 .hero-issue-card:hover {
@@ -423,7 +431,7 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 
 .hero-issue-image {
   position: relative;
-  height: 240px;
+  height: 260px;
   overflow: hidden;
 }
 
@@ -466,7 +474,7 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 }
 
 .hero-issue-body h2 {
-  font-size: clamp(26px, 3.2vw, 42px);
+  font-size: clamp(26px, 3vw, 40px);
   line-height: 1.04;
   letter-spacing: -0.04em;
   margin-bottom: 14px;
@@ -497,25 +505,15 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   font-weight: 900;
 }
 
+/* На мобильном карточку hero вообще не показываем:
+   ниже уже идёт обычный свежий дайджест */
 @media (max-width: 920px) {
   .hero .container {
     display: block;
   }
 
   .hero-issue-card {
-    margin-top: 28px;
-  }
-
-  .hero-issue-image {
-    height: 210px;
-  }
-
-  .hero-issue-body {
-    padding: 22px;
-  }
-
-  .hero-issue-body h2 {
-    font-size: 28px;
+    display: none !important;
   }
 }
 
