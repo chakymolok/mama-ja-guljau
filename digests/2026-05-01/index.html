@@ -29,7 +29,7 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/109029846" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 </head>
-<body>
+<body class="digest-page">
   <div class="promo">Слойка помогает понять, как одеть ребёнка по погоде. <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Открыть бота →</a></div>
 
   <header class="header">
@@ -95,9 +95,7 @@
         </div>
       </div>
     </section>
-
-    <button class="mobile-nav-toggle" type="button">Навигация</button>
-    <div class="mobile-nav-panel">
+<div class="mobile-nav-panel">
       <a href="#deniska">📚 Денискины рассказы</a>
       <a href="#flaneur">🚶 Фланёрство</a>
       <a href="#work">💼 Работа</a>
@@ -427,18 +425,7 @@
     </section>
   
     <button class="floating-share-toggle" type="button" aria-expanded="false">↗ Поделиться</button>
-    <div class="floating-share-panel" aria-hidden="true">
-      <div class="floating-share-title">Поделиться выпуском</div>
-      <div class="share-row">
-        <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fmama-ja-guljau.vercel.app%2Fdigests%2F2026-05-01%2F&text=%D0%9C%D0%B0%D0%BC%D0%B0%2C%20%D1%8F%20%D0%B3%D1%83%D0%BB%D1%8F%D1%8E%20%E2%80%94%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D0%BC%D0%B0%D0%B9%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B2%D1%8B%D0%BF%D1%83%D1%81%D0%BA" target="_blank" rel="noopener">✈️ Telegram</a>
-        <a class="share-btn" href="https://vk.com/share.php?url=https%3A%2F%2Fmama-ja-guljau.vercel.app%2Fdigests%2F2026-05-01%2F" target="_blank" rel="noopener">VK</a>
-        <button class="share-btn js-native-share" type="button" data-share-url="https://mama-ja-guljau.vercel.app/digests/2026-05-01/" data-share-title="Мама, я гуляю — первый майский выпуск" data-share-text="Первый майский выпуск «Мама, я гуляю»: Денискины рассказы, фланёрство, Миядзаки, свободное время и детский термос.">MAX</button>
-        <button class="share-btn js-copy-link" type="button" data-copy-url="https://mama-ja-guljau.vercel.app/digests/2026-05-01/">🔗 Ссылка</button>
-        <span class="share-status js-copy-status" aria-live="polite"></span>
-      </div>
-    </div>
-
-  </main>
+</main>
 
   <footer class="footer">
     <div class="container footer-inner">
@@ -453,15 +440,44 @@
   <script src="../../script.js" defer></script>
 
     <div class="floating-dock" aria-label="Быстрые действия">
-      <button class="dock-btn dock-nav js-dock-nav" type="button" aria-label="Навигация по выпуску">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7.5 17-7.5-3-7.5 3 7.5-17z"/><path d="M12 3.5v14"/></svg>
+      <button class="dock-btn dock-nav js-dock-nav" type="button" aria-label="Навигация по выпуску" title="Навигация">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"></circle>
+          <path d="M14.8 8.2l-2 6.1-5.6 1.5 2-6.1 5.6-1.5z"></path>
+          <circle cx="12" cy="12" r="1"></circle>
+        </svg>
       </button>
-      <button class="dock-btn dock-share js-dock-share" type="button" aria-label="Поделиться">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 12.5l7-4"/><path d="M8.5 12.5l7 4"/><circle cx="6.5" cy="12.5" r="2.2"/><circle cx="17.5" cy="7.5" r="2.2"/><circle cx="17.5" cy="17.5" r="2.2"/></svg>
+      <button class="dock-btn dock-share js-dock-share" type="button" aria-label="Поделиться" title="Поделиться">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="6.5" cy="12" r="2.4"></circle>
+          <circle cx="17.5" cy="6.5" r="2.4"></circle>
+          <circle cx="17.5" cy="17.5" r="2.4"></circle>
+          <path d="M8.7 10.9l6.7-3.4"></path>
+          <path d="M8.7 13.1l6.7 3.4"></path>
+        </svg>
       </button>
-      <a class="dock-btn dock-random js-random-article" href="/digests/2026-05-01/" aria-label="Случайная статья">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3.5c2.2 0 3.2 1.4 4.1 3.4l.8 1.8c.9 2 1.9 3.3 4.1 3.3H20"/><path d="M16.5 4.5L20 7l-3.5 2.5"/><path d="M16.5 13L20 15.5 16.5 18"/><path d="M4 15.5h3.2c1.5 0 2.5-.6 3.2-1.7"/><path d="M13.3 8.6c.7-1 1.7-1.6 3.2-1.6H20"/></svg>
+      <a class="dock-btn dock-random js-random-article" href="/digests/2026-05-01/" aria-label="Случайная статья" title="Случайная статья">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="5" width="14" height="14" rx="3"></rect>
+          <circle cx="9" cy="9" r="1"></circle>
+          <circle cx="15" cy="9" r="1"></circle>
+          <circle cx="12" cy="12" r="1"></circle>
+          <circle cx="9" cy="15" r="1"></circle>
+          <circle cx="15" cy="15" r="1"></circle>
+        </svg>
       </a>
+    </div>
+
+
+    <div class="floating-share-panel" aria-hidden="true">
+      <div class="floating-share-title">Поделиться</div>
+      <div class="share-row">
+        <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fmama-ja-guljau.vercel.app%2Fdigests%2F2026-05-01%2F&text=%D0%9C%D0%B0%D0%BC%D0%B0%2C%20%D1%8F%20%D0%B3%D1%83%D0%BB%D1%8F%D1%8E%20%E2%80%94%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D0%BC%D0%B0%D0%B9%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B2%D1%8B%D0%BF%D1%83%D1%81%D0%BA" target="_blank" rel="noopener">Telegram</a>
+        <a class="share-btn" href="https://vk.com/share.php?url=https%3A%2F%2Fmama-ja-guljau.vercel.app%2Fdigests%2F2026-05-01%2F" target="_blank" rel="noopener">VK</a>
+        <button class="share-btn js-native-share" type="button" data-share-url="https://mama-ja-guljau.vercel.app/digests/2026-05-01/" data-share-title="Мама, я гуляю — первый майский выпуск" data-share-text="Первый майский выпуск «Мама, я гуляю».">MAX</button>
+        <button class="share-btn js-copy-link" type="button" data-copy-url="https://mama-ja-guljau.vercel.app/digests/2026-05-01/">Ссылка</button>
+        <span class="share-status js-copy-status" aria-live="polite"></span>
+      </div>
     </div>
 
 </body>

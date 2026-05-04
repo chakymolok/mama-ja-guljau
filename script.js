@@ -308,3 +308,114 @@ document.addEventListener("click", (event) => {
     if (navPanel) navPanel.classList.remove("open");
   }
 });
+
+
+// ===== FINAL WORKING MOBILE NAV / SHARE =====
+(function () {
+  function closePanels() {
+    document.querySelectorAll(".mobile-nav-panel.open, .floating-share-panel.open").forEach(function (panel) {
+      panel.classList.remove("open");
+      panel.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  document.addEventListener("click", function (event) {
+    const burger = event.target.closest(".burger-toggle");
+    if (burger) {
+      const header = burger.closest(".header-inner");
+      const nav = header ? header.querySelector(".nav") : null;
+      if (nav) {
+        event.preventDefault();
+        event.stopPropagation();
+        const open = !nav.classList.contains("open");
+        nav.classList.toggle("open", open);
+        burger.classList.toggle("open", open);
+        burger.setAttribute("aria-expanded", String(open));
+      }
+      return;
+    }
+
+    const navBtn = event.target.closest(".js-dock-nav");
+    if (navBtn) {
+      event.preventDefault();
+      event.stopPropagation();
+      const navPanel = document.querySelector(".mobile-nav-panel");
+      const sharePanel = document.querySelector(".floating-share-panel");
+      if (sharePanel) sharePanel.classList.remove("open");
+      if (navPanel) {
+        const open = !navPanel.classList.contains("open");
+        navPanel.classList.toggle("open", open);
+        navPanel.setAttribute("aria-hidden", String(!open));
+      }
+      return;
+    }
+
+    const shareBtn = event.target.closest(".js-dock-share");
+    if (shareBtn) {
+      event.preventDefault();
+      event.stopPropagation();
+      const sharePanel = document.querySelector(".floating-share-panel");
+      const navPanel = document.querySelector(".mobile-nav-panel");
+      if (navPanel) navPanel.classList.remove("open");
+      if (sharePanel) {
+        const open = !sharePanel.classList.contains("open");
+        sharePanel.classList.toggle("open", open);
+        sharePanel.setAttribute("aria-hidden", String(!open));
+      }
+      return;
+    }
+
+    const copyBtn = event.target.closest(".js-copy-link");
+    if (copyBtn) {
+      event.preventDefault();
+      const url = copyBtn.dataset.copyUrl || window.location.href;
+      const panel = copyBtn.closest(".floating-share-panel, .share-card");
+      const status = panel ? panel.querySelector(".js-copy-status") : null;
+      navigator.clipboard.writeText(url).then(function () {
+        if (status) status.textContent = "Ссылка скопирована";
+      }).catch(function () {
+        if (status) status.textContent = "Скопируйте вручную: " + url;
+      });
+      setTimeout(function () { if (status) status.textContent = ""; }, 2500);
+      return;
+    }
+
+    const nativeBtn = event.target.closest(".js-native-share");
+    if (nativeBtn) {
+      event.preventDefault();
+      const url = nativeBtn.dataset.shareUrl || window.location.href;
+      const title = nativeBtn.dataset.shareTitle || document.title;
+      const text = nativeBtn.dataset.shareText || title;
+      const panel = nativeBtn.closest(".floating-share-panel, .share-card");
+      const status = panel ? panel.querySelector(".js-copy-status") : null;
+
+      if (navigator.share) {
+        navigator.share({ title, text, url }).catch(function () {});
+      } else {
+        navigator.clipboard.writeText(url).then(function () {
+          if (status) status.textContent = "Ссылка скопирована для MAX";
+        }).catch(function () {
+          if (status) status.textContent = "Скопируйте ссылку вручную";
+        });
+        setTimeout(function () { if (status) status.textContent = ""; }, 2500);
+      }
+      return;
+    }
+
+    const header = event.target.closest(".header-inner");
+    const dock = event.target.closest(".floating-dock");
+    const panel = event.target.closest(".mobile-nav-panel, .floating-share-panel");
+    if (!header && !dock && !panel) {
+      document.querySelectorAll(".header .nav.open").forEach(function (nav) { nav.classList.remove("open"); });
+      document.querySelectorAll(".burger-toggle.open").forEach(function (btn) {
+        btn.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      });
+      closePanels();
+    }
+  }, true);
+
+  document.querySelectorAll(".mobile-nav-panel a").forEach(function (link) {
+    link.addEventListener("click", closePanels);
+  });
+})();
