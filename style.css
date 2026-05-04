@@ -761,3 +761,63 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 body {
   padding-bottom: 72px;
 }
+
+
+/* FIX: burger in top-right + clean icons dock */
+@media (max-width: 760px) {
+  .header-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .burger-toggle {
+    position: static;
+    margin-left: auto;
+    display: inline-flex !important;
+    flex-shrink: 0;
+  }
+
+  .header .nav {
+    position: absolute;
+    right: 12px;
+    top: calc(100% + 8px);
+    left: auto;
+  }
+}
+
+.floating-dock {
+  gap: 6px;
+  padding: 7px;
+  background: rgba(255,255,255,.54);
+}
+
+.dock-btn {
+  width: 42px;
+  height: 42px;
+  font-size: 0;
+}
+
+.dock-btn svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+
+.dock-btn:hover svg {
+  transform: translateY(-1px);
+}
+
+.floating-share-panel {
+  display: none;
+}
+
+.floating-share-panel.open {
+  display: block;
+}

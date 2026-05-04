@@ -186,3 +186,125 @@ document.querySelectorAll(".js-random-article").forEach((link) => {
     window.location.href = next;
   });
 });
+
+
+// ===== FIX: burger top-right =====
+document.querySelectorAll(".burger-toggle").forEach((burger) => {
+  if (burger.dataset.fixedBurger === "1") return;
+  burger.dataset.fixedBurger = "1";
+  const header = burger.closest(".header-inner");
+  const nav = header ? header.querySelector(".nav") : null;
+  if (!nav) return;
+
+  burger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const open = nav.classList.toggle("open");
+    burger.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", String(open));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) {
+      nav.classList.remove("open");
+      burger.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+// ===== FIX: dock share/nav/random =====
+document.querySelectorAll(".js-dock-share").forEach((btn) => {
+  if (btn.dataset.fixedShare === "1") return;
+  btn.dataset.fixedShare = "1";
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const sharePanel = document.querySelector(".floating-share-panel");
+    const navPanel = document.querySelector(".mobile-nav-panel");
+    if (navPanel) navPanel.classList.remove("open");
+    if (sharePanel) {
+      const open = !sharePanel.classList.contains("open");
+      sharePanel.classList.toggle("open", open);
+      sharePanel.setAttribute("aria-hidden", String(!open));
+    }
+  });
+});
+
+document.querySelectorAll(".js-dock-nav").forEach((btn) => {
+  if (btn.dataset.fixedNav === "1") return;
+  btn.dataset.fixedNav = "1";
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const navPanel = document.querySelector(".mobile-nav-panel");
+    const sharePanel = document.querySelector(".floating-share-panel");
+    if (sharePanel) sharePanel.classList.remove("open");
+    if (navPanel) {
+      const open = !navPanel.classList.contains("open");
+      navPanel.classList.toggle("open", open);
+      navPanel.setAttribute("aria-hidden", String(!open));
+    } else {
+      const target = document.querySelector("#toc") || document.querySelector("#issue") || document.querySelector("main");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+document.querySelectorAll(".js-copy-link").forEach((button) => {
+  if (button.dataset.fixedCopy === "1") return;
+  button.dataset.fixedCopy = "1";
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const url = button.dataset.copyUrl || window.location.href;
+    const panel = button.closest(".share-card, .floating-share-panel");
+    const status = panel ? panel.querySelector(".js-copy-status") : null;
+    try {
+      await navigator.clipboard.writeText(url);
+      if (status) status.textContent = "Ссылка скопирована";
+    } catch (error) {
+      if (status) status.textContent = "Скопируйте вручную: " + url;
+    }
+    setTimeout(() => { if (status) status.textContent = ""; }, 2500);
+  });
+});
+
+document.querySelectorAll(".js-native-share").forEach((button) => {
+  if (button.dataset.fixedNativeShare === "1") return;
+  button.dataset.fixedNativeShare = "1";
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const url = button.dataset.shareUrl || window.location.href;
+    const title = button.dataset.shareTitle || document.title;
+    const text = button.dataset.shareText || title;
+    const panel = button.closest(".share-card, .floating-share-panel");
+    const status = panel ? panel.querySelector(".js-copy-status") : null;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, text, url });
+        return;
+      } catch (error) {}
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      if (status) status.textContent = "Для MAX ссылка скопирована";
+    } catch (error) {
+      if (status) status.textContent = "MAX: скопируйте ссылку вручную";
+    }
+    setTimeout(() => { if (status) status.textContent = ""; }, 2500);
+  });
+});
+
+document.addEventListener("click", (event) => {
+  const dock = document.querySelector(".floating-dock");
+  const sharePanel = document.querySelector(".floating-share-panel");
+  const navPanel = document.querySelector(".mobile-nav-panel");
+  const clickedDock = dock && dock.contains(event.target);
+  const clickedShare = sharePanel && sharePanel.contains(event.target);
+  const clickedNav = navPanel && navPanel.contains(event.target);
+  if (!clickedDock && !clickedShare && !clickedNav) {
+    if (sharePanel) sharePanel.classList.remove("open");
+    if (navPanel) navPanel.classList.remove("open");
+  }
+});
