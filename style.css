@@ -1027,3 +1027,211 @@ body.digest-page .dock-btn:hover img {
 body.digest-page .dock-btn svg {
   display: none !important;
 }
+
+
+/* Typography improvements */
+html {
+  -webkit-font-kerning: normal;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  hanging-punctuation: first last;
+}
+
+p, li, blockquote, .lead, .sub, .article-block p, .block p, .issue p, .teaser p, .donate-card p, .footer-project-note p {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+h1, h2, h3, .article-title, .detail-title {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+p, li, .article-block p, .block p {
+  text-wrap: pretty;
+}
+
+/* Donate section */
+.donate-section {
+  padding: 44px 0;
+}
+
+.donate-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 22px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.donate-card h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.08;
+  margin-bottom: 10px;
+}
+
+.donate-card p {
+  color: var(--muted);
+  max-width: 680px;
+}
+
+/* Footer creator note */
+.footer-project-note {
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.footer-project-note p {
+  max-width: 780px;
+  margin: 0 0 10px;
+}
+
+.footer-project-note a {
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-donate-link {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(243,166,160,.18);
+  border: 1px solid rgba(243,166,160,.35);
+  text-decoration: none !important;
+}
+
+/* Donate modal */
+.donate-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.donate-modal.open {
+  display: flex;
+}
+
+.donate-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(31,31,31,.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.donate-modal-card {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 100%);
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(232,224,213,.9);
+  box-shadow: 0 24px 80px rgba(0,0,0,.20);
+  backdrop-filter: blur(18px) saturate(1.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+}
+
+.donate-modal-card h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.donate-modal-card p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.donate-modal-close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.7);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.donate-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.donate-amounts span {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(243,166,160,.16);
+  border: 1px solid rgba(243,166,160,.30);
+  font-weight: 850;
+  font-size: 14px;
+}
+
+/* Dock donation icon */
+body.digest-page .dock-donate svg {
+  width: 23px !important;
+  height: 23px !important;
+  display: block !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+@media (max-width: 760px) {
+  .donate-section {
+    padding: 28px 0;
+  }
+
+  .donate-card {
+    display: block;
+    padding: 22px;
+  }
+
+  .donate-card .btn {
+    margin-top: 18px;
+    width: 100%;
+  }
+
+  .donate-modal-card {
+    padding: 24px;
+  }
+
+  body.digest-page .floating-dock {
+    gap: 6px !important;
+    padding: 7px !important;
+  }
+
+  body.digest-page .dock-btn {
+    width: 46px !important;
+    height: 46px !important;
+  }
+}

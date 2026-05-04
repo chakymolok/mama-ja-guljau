@@ -419,3 +419,81 @@ document.addEventListener("click", (event) => {
     link.addEventListener("click", closePanels);
   });
 })();
+
+
+// ===== Donate modal =====
+(function () {
+  const donateUrl = "https://www.tbank.ru/cf/1ZddEeAvzU1";
+
+  function openDonate(event) {
+    if (event) event.preventDefault();
+    const modal = document.querySelector(".donate-modal");
+    if (!modal) {
+      window.open(donateUrl, "_blank", "noopener");
+      return;
+    }
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeDonate(event) {
+    if (event) event.preventDefault();
+    const modal = document.querySelector(".donate-modal");
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  document.addEventListener("click", function (event) {
+    const openBtn = event.target.closest(".js-donate-open");
+    if (openBtn) {
+      openDonate(event);
+      return;
+    }
+
+    const closeBtn = event.target.closest(".js-donate-close");
+    if (closeBtn) {
+      closeDonate(event);
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeDonate(event);
+  });
+})();
+
+// ===== Russian typography helpers =====
+(function () {
+  const shortWords = "а|в|во|и|к|ко|о|об|от|по|с|со|у|за|из|на|не|ни|но|ну|до|для|про|при|над|под|без|или|как|что|это";
+  const reShort = new RegExp("(^|\\s)(" + shortWords + ")\\s+", "giu");
+
+  function typographText(text) {
+    return text
+      .replace(/\s+([,.:;!?])/g, "$1")
+      .replace(/([№])\s+(\d)/g, "$1\u00A0$2")
+      .replace(/(\d+)\s+(рублей|рубля|рубль|₽|лет|года|год|минут|минуты|часов|часа|час)/giu, "$1\u00A0$2")
+      .replace(reShort, "$1$2\u00A0")
+      .replace(/\s+—\s+/g, " — ")
+      .replace(/\s+-\s+/g, " - ");
+  }
+
+  function walk(node) {
+    if (!node) return;
+    if (node.nodeType === Node.TEXT_NODE) {
+      const parent = node.parentElement;
+      if (!parent) return;
+      const tag = parent.tagName;
+      if (["SCRIPT", "STYLE", "TEXTAREA", "INPUT", "CODE", "PRE"].includes(tag)) return;
+      if (!node.nodeValue || !node.nodeValue.trim()) return;
+      node.nodeValue = typographText(node.nodeValue);
+      return;
+    }
+    node.childNodes.forEach(walk);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () { walk(document.body); });
+  } else {
+    walk(document.body);
+  }
+})();
