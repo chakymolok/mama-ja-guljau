@@ -1008,3 +1008,22 @@ body.digest-page .floating-share-panel .share-status {
 body.digest-page {
   padding-bottom: 88px !important;
 }
+
+
+/* PNG icons for floating dock */
+body.digest-page .dock-btn img {
+  width: 23px !important;
+  height: 23px !important;
+  display: block !important;
+  object-fit: contain !important;
+  opacity: .9 !important;
+}
+
+body.digest-page .dock-btn:hover img {
+  opacity: 1 !important;
+  transform: translateY(-1px);
+}
+
+body.digest-page .dock-btn svg {
+  display: none !important;
+}
