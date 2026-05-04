@@ -353,3 +353,19 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
+
+
+.logo-mark-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+@media (max-width: 720px) {
+  .logo-mark-img {
+    width: 30px;
+    height: 30px;
+  }
+}
