@@ -1,8 +1,8 @@
 /* Мама, я гуляю - editorial build with local images */
 :root {
   --bg: #FAF7F0; --bg-2: #F2EDE0; --card: #FFFFFF; --text: #1E1E1E; --muted: #6F6A63;
-  --border: #E8E0D5; --green: #7FA77B; --green-dark: #5f895b; --yellow: #F2C66D; --pink: #F3A6A0;
-  --green-soft: #ECF2EB; --yellow-soft: #FBF1DA; --pink-soft: #FBE8E6; --blue-soft: #E0EAF2; --sand: #EADFCB;
+  --border: #E8E0D5; --green: #F3A6A0; --green-dark: #E86F92; --yellow: #F2C66D; --pink: #F3A6A0;
+  --green-soft: #FBE8E6; --yellow-soft: #FBF1DA; --pink-soft: #FBE8E6; --blue-soft: #E0EAF2; --sand: #EADFCB;
   --radius: 22px; --shadow: 0 18px 50px rgba(54, 43, 29, .08);
 }
 * { box-sizing: border-box; }
