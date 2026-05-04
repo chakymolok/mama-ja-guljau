@@ -162,32 +162,6 @@ function updateShareLinks() {
   });
 }
 
-async function initViewCounters() {
-  const badges = document.querySelectorAll("[data-view-count]");
-  if (!badges.length) return;
-
-  for (const badge of badges) {
-    const slug = badge.dataset.viewCount;
-    const shouldIncrement = window.location.pathname.includes("/digests/");
-    const url = `/api/views?slug=${encodeURIComponent(slug)}${shouldIncrement ? "&inc=1" : ""}`;
-
-    try {
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) throw new Error("views_api_failed");
-
-      const data = await response.json();
-      if (data.configured === false) throw new Error("views_not_configured");
-
-      const value = Number(data.views || 0).toLocaleString("ru-RU");
-      badge.innerHTML = `👀 <strong>${value}</strong> прочтений`;
-      badge.classList.remove("loading");
-    } catch (error) {
-      badge.textContent = "";
-      badge.style.display = "none";
-    }
-  }
-}
-
 function openDonate(event) {
   if (event) event.preventDefault();
 
@@ -341,7 +315,6 @@ function init() {
   initSmoothAnchors();
   initRandomArticleLinks();
   initGlobalEvents();
-  initViewCounters();
   typographPage();
 }
 

@@ -247,27 +247,6 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   font-weight: 800;
   padding: 10px 0;
 }
-.views-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 7px 11px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.72);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 800;
-}
-.views-badge strong {
-  color: var(--text);
-  font-weight: 900;
-}
-.views-badge.loading {
-  opacity: .72;
-}
-
-
 .floating-share-toggle {
   position: fixed;
   right: 16px;
@@ -1428,8 +1407,13 @@ p, li, blockquote, .lead, .sub, .article-block p, .block p, .issue p, .teaser p 
 }
 
 
-/* SEO polish: hide unresolved reading counter from snippets */
-.views-badge.loading,
-[data-view-count]:empty {
-  display: none !important;
+@media (max-width: 760px) {
+  body .header .nav {
+    background: rgba(255,255,255,.94) !important;
+    box-shadow: 0 18px 48px rgba(0,0,0,.18) !important;
+  }
+
+  body .header .nav a {
+    background: rgba(255,255,255,.68) !important;
+  }
 }
