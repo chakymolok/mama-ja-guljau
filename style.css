@@ -470,92 +470,105 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 }
 
 
-/* Hero with photo on desktop */
-body .hero {
-  min-height: auto !important;
-  padding: clamp(56px, 7vw, 88px) 0 clamp(36px, 6vw, 72px) !important;
+/* Actual homepage hero photo: text left, photo right */
+.home-hero {
+  padding: 76px 0 34px;
 }
 
-body .hero .container {
-  display: grid !important;
-  grid-template-columns: minmax(320px, 560px) minmax(420px, 560px) !important;
-  gap: clamp(38px, 7vw, 112px) !important;
-  align-items: center !important;
-  max-width: 1200px;
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+  gap: 42px;
+  align-items: center;
 }
 
-body .hero-copy {
-  min-width: 0;
-}
-
-body .hero h1,
-body .hero .lead,
-body .hero .sub,
-body .hero-actions {
-  max-width: 620px;
-}
-
-body .hero-photo {
+.editorial-collage {
+  min-height: 430px;
+  position: relative;
   display: block;
+}
+
+.editorial-collage .hero-side-photo {
   width: 100%;
+  height: 430px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
   border-radius: 34px;
-  overflow: hidden;
+  filter: grayscale(100%);
   box-shadow: 0 24px 70px rgba(0,0,0,.10);
   border: 1px solid rgba(0,0,0,.04);
   background: var(--card);
 }
 
-body .hero-photo img {
-  width: 100%;
-  aspect-ratio: 1.08 / 1;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(100%);
-}
-
-/* Если где-то остались старые декоративные hero-блоки, гасим их */
-body .hero-card-slot,
-body .hero-issue-card,
-body .hero-cover-link,
-body .hero-collage,
-body .hero-visual {
+/* Kill old decorative collage cards if any survived */
+.editorial-collage .collage-card {
   display: none !important;
 }
 
 @media (max-width: 920px) {
-  body .hero .container {
-    display: block !important;
+  .home-hero-grid {
+    display: block;
   }
 
-  body .hero-photo {
+  .editorial-collage {
     display: none !important;
+    min-height: 0 !important;
   }
 }
 
 @media (max-width: 760px) {
-  body .hero {
-    padding: 36px 0 18px !important;
+  .home-hero {
+    padding: 34px 0 14px !important;
   }
 
-  body .hero h1 {
-    margin-bottom: 18px;
+  .home-hero h1 {
+    margin-bottom: 16px;
   }
 
-  body .hero .lead {
+  .home-hero .lead {
     margin-bottom: 10px;
   }
 
-  body .hero .sub {
+  .home-hero .sub {
     margin-bottom: 20px;
   }
 
-  body .hero + section,
-  body .hero + .container,
-  body main > section:nth-of-type(2) {
+  #issue {
     padding-top: 10px !important;
   }
 
+  #inside,
+  #rubrics,
+  #categories,
+  .inside-section,
+  .rubrics-section,
+  .categories-section {
+    display: none !important;
+  }
+}
+
+
+/* Desktop restore for overview sections */
+@media (min-width: 761px) {
+  #inside,
+  #rubrics,
+  #categories,
+  .inside-section,
+  .rubrics-section,
+  .categories-section {
+    display: block !important;
+  }
+
+  #inside .issue-teasers,
+  #rubrics .rubrics-grid,
+  #categories .cats-grid {
+    display: grid !important;
+  }
+}
+
+/* Mobile only: hide overview sections */
+@media (max-width: 760px) {
   #inside,
   #rubrics,
   #categories,
