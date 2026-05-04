@@ -1359,3 +1359,70 @@ p, li, blockquote, .lead, .sub, .article-block p, .block p, .issue p, .teaser p 
   white-space: nowrap !important;
   display: inline-block;
 }
+
+
+/* Mobile floating glass header */
+@media (max-width: 760px) {
+  body .header {
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 120 !important;
+    width: calc(100% - 24px) !important;
+    margin: 10px auto 0 !important;
+    border: 1px solid rgba(232,224,213,.86) !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.58) !important;
+    box-shadow: 0 14px 42px rgba(0,0,0,.10) !important;
+    backdrop-filter: blur(18px) saturate(1.45) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.45) !important;
+    overflow: visible !important;
+  }
+
+  body .header-inner {
+    min-height: 62px !important;
+    padding: 8px 10px 8px 14px !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+  }
+
+  body .header .logo {
+    font-size: 20px !important;
+    gap: 10px !important;
+  }
+
+  body .logo-mark-img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  body .burger-toggle {
+    width: 48px !important;
+    height: 48px !important;
+    flex-basis: 48px !important;
+    background: rgba(255,255,255,.70) !important;
+    border: 1px solid rgba(232,224,213,.92) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08) !important;
+  }
+
+  body .header .nav {
+    right: 0 !important;
+    top: calc(100% + 10px) !important;
+    border-radius: 24px !important;
+  }
+
+  /* compensate because header is now floating and no longer full-width strip */
+  body main {
+    margin-top: 10px;
+  }
+
+  .promo + .header {
+    margin-top: 10px !important;
+  }
+}
+
+/* iPhone safe area friendliness */
+@media (max-width: 760px) and (padding-top: env(safe-area-inset-top)) {
+  body .header {
+    top: max(10px, env(safe-area-inset-top)) !important;
+  }
+}
