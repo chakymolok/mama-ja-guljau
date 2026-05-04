@@ -369,3 +369,44 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
     height: 30px;
   }
 }
+
+
+.hero-cover-link {
+  display: block;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  min-height: 360px;
+}
+.hero-cover-link img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  display: block;
+  transition: transform .25s ease;
+}
+.hero-cover-link:hover img {
+  transform: scale(1.025);
+}
+
+/* На мобильном первый экран должен быть текстовым, без большой картинки */
+@media (max-width: 760px) {
+  .hero-cover-link {
+    display: none;
+  }
+}
+
+/* На мобильном прячем блоки-превью: "Что внутри" и "Рубрики проекта" */
+@media (max-width: 760px) {
+  #inside,
+  #rubrics,
+  #categories,
+  .inside-section,
+  .rubrics-section,
+  .categories-section {
+    display: none !important;
+  }
+}
