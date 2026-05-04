@@ -560,3 +560,33 @@ document.addEventListener("click", (event) => {
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
   else run();
 })();
+
+
+// ===== SEO FIX: dynamic canonical share URL =====
+(function () {
+  function currentCanonicalUrl() {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    return canonical ? canonical.href : `${window.location.origin}${window.location.pathname}`;
+  }
+
+  function updateShareLinks() {
+    const url = currentCanonicalUrl();
+    const title = document.title || "Мама, я гуляю";
+    document.querySelectorAll('a[href*="t.me/share/url"]').forEach((a) => {
+      a.href = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+    });
+    document.querySelectorAll('a[href*="vk.com/share.php"]').forEach((a) => {
+      a.href = `https://vk.com/share.php?url=${encodeURIComponent(url)}`;
+    });
+    document.querySelectorAll("[data-copy-url]").forEach((el) => {
+      el.setAttribute("data-copy-url", url);
+    });
+    document.querySelectorAll("[data-share-url]").forEach((el) => {
+      el.setAttribute("data-share-url", url);
+      if (!el.getAttribute("data-share-title")) el.setAttribute("data-share-title", title);
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", updateShareLinks);
+  else updateShareLinks();
+})();

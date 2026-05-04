@@ -1426,3 +1426,10 @@ p, li, blockquote, .lead, .sub, .article-block p, .block p, .issue p, .teaser p 
     top: max(10px, env(safe-area-inset-top)) !important;
   }
 }
+
+
+/* SEO polish: hide unresolved reading counter from snippets */
+.views-badge.loading,
+[data-view-count]:empty {
+  display: none !important;
+}
