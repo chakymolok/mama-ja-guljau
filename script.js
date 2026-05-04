@@ -1,4 +1,7 @@
-const randomArticleLinks = ["/digests/2026-05-01/"];
+const randomArticleLinks = [
+  "/digests/2026-04-21/",
+  "/digests/2026-05-01/"
+];
 
 function getCanonicalUrl() {
   const canonical = document.querySelector('link[rel="canonical"]');
