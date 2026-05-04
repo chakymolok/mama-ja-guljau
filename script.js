@@ -497,3 +497,66 @@ document.addEventListener("click", (event) => {
     walk(document.body);
   }
 })();
+
+
+// ===== FINAL typography patch =====
+(function () {
+  function improveText(text) {
+    return text
+      .replace(/Мама,\s+я\s+гуляю/g, "Мама,\u00A0я гуляю")
+      .replace(/([А-ЯЁа-яёA-Za-z]),\s+(я|и|а|но|как|что|это)\s+/g, "$1,\u00A0$2\u00A0")
+      .replace(/(^|\s)(в|во|на|к|ко|с|со|о|об|от|до|по|за|из|у|не|ни|а|и|но|для|про|при)\s+/giu, "$1$2\u00A0")
+      .replace(/№\s*(\d+)/g, "№\u00A0$1")
+      .replace(/(\d+)\s+(рублей|рубля|рубль|₽|лет|года|год|минут|минуты|часов|часа|час)/giu, "$1\u00A0$2");
+  }
+
+  function walkText(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const parent = node.parentElement;
+      if (!parent || ["SCRIPT", "STYLE", "TEXTAREA", "INPUT", "CODE", "PRE"].includes(parent.tagName)) return;
+      if (node.nodeValue && node.nodeValue.trim()) node.nodeValue = improveText(node.nodeValue);
+      return;
+    }
+    node.childNodes.forEach(walkText);
+  }
+
+  function run() {
+    walkText(document.body);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+
+
+// ===== FINAL hanging particles fix =====
+(function () {
+  function fixHangingParticles(text) {
+    return text
+      // название проекта: частица "я" не должна висеть в конце строки
+      .replace(/Мама,\s*я\s+гуляю/g, "Мама, я\u00A0гуляю")
+      // после запятой короткое слово переносится со следующим словом: "..., и мир" -> "..., и мир"
+      .replace(/,\s+(я|и|а|но|как|что|это|не|ни|в|на|к|с|о|у|за|по|от|до|из|для|про|при)\s+([А-ЯЁа-яёA-Za-z0-9])/giu, ", $1\u00A0$2")
+      // короткие предлоги/частицы перед словом
+      .replace(/(^|\s)(в|во|на|к|ко|с|со|о|об|от|до|по|за|из|у|не|ни|а|и|но|для|про|при)\s+([А-ЯЁа-яёA-Za-z0-9])/giu, "$1$2\u00A0$3")
+      .replace(/№\s*(\d+)/g, "№\u00A0$1")
+      .replace(/(\d+)\s+(рублей|рубля|рубль|₽|лет|года|год|минут|минуты|часов|часа|час)/giu, "$1\u00A0$2");
+  }
+
+  function walk(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const parent = node.parentElement;
+      if (!parent || ["SCRIPT", "STYLE", "TEXTAREA", "INPUT", "CODE", "PRE"].includes(parent.tagName)) return;
+      if (node.nodeValue && node.nodeValue.trim()) node.nodeValue = fixHangingParticles(node.nodeValue);
+      return;
+    }
+    node.childNodes.forEach(walk);
+  }
+
+  function run() {
+    walk(document.body);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
