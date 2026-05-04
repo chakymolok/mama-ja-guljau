@@ -371,35 +371,155 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 }
 
 
-.hero-cover-link {
-  display: block;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--card);
-  box-shadow: var(--shadow);
-  min-height: 360px;
+
+
+/* На мобильном прячем блоки-превью: "Что внутри" и "Рубрики проекта" */
+@media (max-width: 760px) {
+  #inside,
+  #rubrics,
+  #categories,
+  .inside-section,
+  .rubrics-section,
+  .categories-section {
+    display: none !important;
+  }
 }
-.hero-cover-link img {
+
+
+/* Hero: text + mini issue card */
+.hero .container,
+.hero-inner,
+.hero-grid {
+  position: relative;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: minmax(320px, 560px) minmax(360px, 560px);
+  gap: clamp(28px, 5vw, 76px);
+  align-items: center;
+}
+
+.hero .container > .hero-cover-link {
+  display: none !important;
+}
+
+.hero-issue-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.hero-issue-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 70px rgba(0,0,0,.12);
+}
+
+.hero-issue-image {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.hero-issue-image img {
   width: 100%;
   height: 100%;
-  min-height: 360px;
   object-fit: cover;
   display: block;
   transition: transform .25s ease;
 }
-.hero-cover-link:hover img {
-  transform: scale(1.025);
+
+.hero-issue-card:hover .hero-issue-image img {
+  transform: scale(1.03);
 }
 
-/* На мобильном первый экран должен быть текстовым, без большой картинки */
-@media (max-width: 760px) {
-  .hero-cover-link {
-    display: none;
+.hero-issue-meta {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 1px 12px rgba(0,0,0,.35);
+}
+
+.hero-issue-meta .views-badge {
+  background: rgba(255,255,255,.88);
+  text-shadow: none;
+}
+
+.hero-issue-body {
+  padding: 28px;
+}
+
+.hero-issue-body .kicker {
+  margin-bottom: 14px;
+}
+
+.hero-issue-body h2 {
+  font-size: clamp(26px, 3.2vw, 42px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  margin-bottom: 14px;
+}
+
+.hero-issue-body p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.hero-issue-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 22px;
+}
+
+.hero-issue-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fff;
+  font-weight: 900;
+}
+
+@media (max-width: 920px) {
+  .hero .container {
+    display: block;
+  }
+
+  .hero-issue-card {
+    margin-top: 28px;
+  }
+
+  .hero-issue-image {
+    height: 210px;
+  }
+
+  .hero-issue-body {
+    padding: 22px;
+  }
+
+  .hero-issue-body h2 {
+    font-size: 28px;
   }
 }
 
-/* На мобильном прячем блоки-превью: "Что внутри" и "Рубрики проекта" */
+/* На мобильном не показываем нижние обзорные блоки */
 @media (max-width: 760px) {
   #inside,
   #rubrics,
