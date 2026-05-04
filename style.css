@@ -578,3 +578,186 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
     display: none !important;
   }
 }
+
+
+/* Mobile burger menu */
+.burger-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(232,224,213,.78);
+  border-radius: 999px;
+  background: rgba(255,255,255,.58);
+  backdrop-filter: blur(14px) saturate(1.35);
+  -webkit-backdrop-filter: blur(14px) saturate(1.35);
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.burger-toggle span {
+  display: block;
+  width: 17px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.burger-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burger-toggle.open span:nth-child(2) { opacity: 0; }
+.burger-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .header-inner {
+    position: relative;
+  }
+
+  .burger-toggle {
+    display: inline-flex;
+  }
+
+  .header .nav {
+    position: absolute;
+    right: 14px;
+    top: calc(100% + 10px);
+    z-index: 60;
+    display: none;
+    width: min(260px, calc(100vw - 28px));
+    padding: 10px;
+    border-radius: 22px;
+    background: rgba(255,255,255,.68);
+    border: 1px solid rgba(232,224,213,.82);
+    box-shadow: 0 18px 50px rgba(0,0,0,.12);
+    backdrop-filter: blur(18px) saturate(1.45);
+    -webkit-backdrop-filter: blur(18px) saturate(1.45);
+  }
+
+  .header .nav.open {
+    display: grid;
+    gap: 4px;
+  }
+
+  .header .nav a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: var(--text);
+    border-radius: 16px;
+  }
+
+  .header .nav a:hover {
+    background: rgba(243,166,160,.18);
+  }
+}
+
+/* Unified floating dock */
+.floating-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 140;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.58);
+  border: 1px solid rgba(232,224,213,.82);
+  box-shadow: 0 18px 50px rgba(0,0,0,.14);
+  backdrop-filter: blur(18px) saturate(1.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+}
+
+.dock-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(232,224,213,.82);
+  background: rgba(255,255,255,.60);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.dock-btn:hover {
+  background: rgba(243,166,160,.20);
+}
+
+/* Hide old large floating buttons, keep their panels functional */
+.floating-share-toggle,
+.mobile-nav-toggle {
+  display: none !important;
+}
+
+/* Panels now open from compact dock */
+.floating-share-panel,
+.mobile-nav-panel {
+  position: fixed;
+  left: 50%;
+  right: auto;
+  bottom: 78px;
+  transform: translateX(-50%);
+  z-index: 139;
+  width: min(380px, calc(100vw - 28px));
+  padding: 14px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(232,224,213,.82);
+  box-shadow: 0 18px 50px rgba(0,0,0,.14);
+  backdrop-filter: blur(18px) saturate(1.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+}
+
+.mobile-nav-panel {
+  display: none;
+  gap: 6px;
+}
+
+.mobile-nav-panel.open,
+.floating-share-panel.open {
+  display: grid;
+}
+
+.mobile-nav-panel a {
+  display: block;
+  padding: 11px 13px;
+  border-radius: 16px;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255,255,255,.45);
+  font-weight: 800;
+}
+
+.mobile-nav-panel a:hover {
+  background: rgba(243,166,160,.20);
+}
+
+.floating-share-panel .share-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* Desktop: dock can stay, but smaller and less intrusive */
+@media (min-width: 921px) {
+  .floating-dock {
+    bottom: 20px;
+  }
+}
+
+/* Make room at bottom so dock doesn't cover the end of text */
+body {
+  padding-bottom: 72px;
+}

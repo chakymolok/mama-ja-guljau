@@ -106,3 +106,83 @@ async function initViewCounters() {
 }
 
 initViewCounters();
+
+
+// ===== mobile burger =====
+document.querySelectorAll(".burger-toggle").forEach((burger) => {
+  const nav = burger.parentElement ? burger.parentElement.querySelector(".nav") : null;
+  if (!nav) return;
+
+  burger.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    burger.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", String(open));
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      burger.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    });
+  });
+});
+
+// ===== unified floating dock =====
+document.querySelectorAll(".js-dock-share").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const sharePanel = document.querySelector(".floating-share-panel");
+    const navPanel = document.querySelector(".mobile-nav-panel");
+    if (navPanel) navPanel.classList.remove("open");
+    if (sharePanel) {
+      sharePanel.classList.toggle("open");
+      sharePanel.setAttribute("aria-hidden", String(!sharePanel.classList.contains("open")));
+    }
+  });
+});
+
+document.querySelectorAll(".js-dock-nav").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const navPanel = document.querySelector(".mobile-nav-panel");
+    const sharePanel = document.querySelector(".floating-share-panel");
+    if (sharePanel) sharePanel.classList.remove("open");
+
+    if (navPanel) {
+      navPanel.classList.toggle("open");
+      navPanel.setAttribute("aria-hidden", String(!navPanel.classList.contains("open")));
+    } else {
+      const target = document.querySelector("#issue") || document.querySelector("main");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+document.addEventListener("click", (event) => {
+  const dock = document.querySelector(".floating-dock");
+  const sharePanel = document.querySelector(".floating-share-panel");
+  const navPanel = document.querySelector(".mobile-nav-panel");
+
+  const clickedDock = dock && dock.contains(event.target);
+  const clickedShare = sharePanel && sharePanel.contains(event.target);
+  const clickedNav = navPanel && navPanel.contains(event.target);
+
+  if (!clickedDock && !clickedShare && !clickedNav) {
+    if (sharePanel) sharePanel.classList.remove("open");
+    if (navPanel) navPanel.classList.remove("open");
+  }
+});
+
+// Random article placeholder.
+// Later add more URLs here.
+const randomArticleLinks = [
+  "/digests/2026-05-01/"
+];
+
+document.querySelectorAll(".js-random-article").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!randomArticleLinks.length) return;
+    event.preventDefault();
+    const next = randomArticleLinks[Math.floor(Math.random() * randomArticleLinks.length)];
+    window.location.href = next;
+  });
+});

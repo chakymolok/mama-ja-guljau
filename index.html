@@ -34,6 +34,7 @@
   <header class="header">
     <div class="header-inner">
       <a href="#" class="logo"><img src="assets/mama-logo-rope.png" alt="Мама, я гуляю" class="logo-mark-img" />Мама, я гуляю</a>
+      <button class="burger-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="nav">
         <a href="#issue">Выпуск</a><a href="#inside">Что внутри</a><a href="#rubrics">Рубрики</a><a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Telegram</a>
       </nav>
@@ -128,5 +129,12 @@
   </main>
   <footer class="footer"><div class="container footer-inner"><div>Мама, я гуляю - короткие дайджесты для родителей.</div><div><a href="digests/2026-05-01/">Выпуск №001</a><a href="https://t.me/sloika_ibot" target="_blank" rel="noopener">Telegram</a></div></div></footer>
   <script src="script.js" defer></script>
+
+    <div class="floating-dock" aria-label="Быстрые действия">
+      <button class="dock-btn dock-nav js-dock-nav" type="button" aria-label="Навигация по выпуску">🧭</button>
+      <button class="dock-btn dock-share js-dock-share" type="button" aria-label="Поделиться">↗</button>
+      <a class="dock-btn dock-random js-random-article" href="/digests/2026-05-01/" aria-label="Случайная статья">🎲</a>
+    </div>
+
 </body>
 </html>
