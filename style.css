@@ -419,7 +419,7 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 
 
 
-/* На мобильном прячем блоки-превью: "Что внутри" и "Рубрики проекта" */
+/* Mobile: hide overview blocks and old hero card variants. */
 @media (max-width: 760px) {
   #inside,
   #rubrics,
@@ -431,86 +431,13 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   }
 }
 
-
-/* На мобильном не показываем нижние обзорные блоки */
-@media (max-width: 760px) {
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
-    display: none !important;
-  }
-}
-
-
-/* На мобильном карточку hero вообще не показываем:
-   ниже уже идёт обычный свежий дайджест */
-@media (max-width: 920px) {
-  .hero .container {
-    display: block;
-  }
-
-  .hero-issue-card {
-    display: none !important;
-  }
-}
-
-/* На мобильном не показываем нижние обзорные блоки */
-@media (max-width: 760px) {
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
-    display: none !important;
-  }
-}
-
-
-/* Mobile: no hero issue card. There is already a fresh digest card below. */
 @media (max-width: 920px) {
   body .hero .container {
     display: block !important;
   }
 
-  body .hero-card-slot {
-    display: none !important;
-  }
-
+  body .hero-card-slot,
   body .hero-issue-card {
-    display: none !important;
-  }
-}
-
-/* Mobile: hide overview blocks */
-@media (max-width: 760px) {
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
-    display: none !important;
-  }
-}
-
-
-/* Убираем пустоту между hero и первой карточкой дайджеста */
-  body .hero + section,
-  body .hero + .container,
-  body main > section:nth-of-type(2) {
-    padding-top: 12px !important;
-  }
-
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
     display: none !important;
   }
 }
@@ -675,7 +602,7 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
     width: min(260px, calc(100vw - 28px));
     padding: 10px;
     border-radius: 22px;
-    background: rgba(255,255,255,.68);
+    background: rgba(255,255,255,.90);
     border: 1px solid rgba(232,224,213,.82);
     box-shadow: 0 18px 50px rgba(0,0,0,.12);
     backdrop-filter: blur(18px) saturate(1.45);
