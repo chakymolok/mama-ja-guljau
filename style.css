@@ -171,6 +171,7 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .block-media img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
 .block-media.portrait img { aspect-ratio: 3/4; }
 .block-media.contain img { aspect-ratio: 4/3; object-fit: contain; padding: 12px; background: var(--bg); }
+.block-media.edge-to-edge img { aspect-ratio: auto; object-fit: contain; padding: 0; background: transparent; }
 .caption { padding: 10px 12px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); background: rgba(250,247,240,.72); }
 .prose { max-width: 740px; }
 .prose p { margin: 0 0 18px; font-size: 18px; }
