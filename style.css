@@ -39,6 +39,15 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .tag-row, .meta-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag, .mark { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.64); border: 1px solid var(--border); color: var(--muted); font-size: 14px; text-decoration: none; }
 .tag:hover, a.mark:hover { color: var(--text); background: #fff; }
+.issue-tags-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+.issue-tags-strip .tag {
+  background: #fff;
+}
 
 /* Home */
 .home-hero { padding: 76px 0 34px; }
@@ -218,6 +227,43 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .callout { padding: 20px; border-radius: 22px; border: 1px solid var(--border); background: var(--yellow-soft); margin: 24px 0; }
 .callout.green { background: var(--green-soft); } .callout.pink { background: var(--pink-soft); }
 .callout strong { display: block; margin-bottom: 8px; }
+
+.season-inventory-card,
+.summer-rhythm-card {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--yellow-soft), #fff);
+}
+.season-inventory-card div {
+  display: grid;
+  gap: 5px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.season-inventory-card div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.season-inventory-card span,
+.summer-rhythm-card span {
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.season-inventory-card strong,
+.summer-rhythm-card strong {
+  font-size: 18px;
+  line-height: 1.32;
+}
+.summer-rhythm-card {
+  background: linear-gradient(135deg, var(--blue-soft), #fff);
+}
 
 .link-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin: 22px 0; }
 .link-card { text-decoration: none; padding: 15px 16px; border-radius: 18px; border: 1px solid var(--border); background: var(--bg); }
@@ -1539,5 +1585,13 @@ p, li, blockquote, .lead, .sub, .article-block p, .block p, .issue p, .teaser p 
 
   body .header .nav a {
     background: rgba(255,255,255,.68) !important;
+  }
+}
+
+@media (min-width: 761px) {
+  body.digest-page .floating-dock,
+  body.digest-page .mobile-nav-panel,
+  body.digest-page .floating-share-panel {
+    display: none !important;
   }
 }
