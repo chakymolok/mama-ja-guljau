@@ -148,7 +148,29 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .article-title-box h1 { font-size: clamp(38px, 6vw, 76px); margin: 18px 0 20px; }
 .article-title-box p { font-size: 19px; color: rgba(255,255,255,.86); max-width: 720px; }
 .credit { font-size: 12px; color: rgba(255,255,255,.68); margin-top: 18px; }
+.issue-003-hero-art img {
+  object-position: center center;
+  opacity: 1;
+}
+.issue-003-hero-art::after {
+  background: linear-gradient(180deg, rgba(20,18,15,.08), rgba(20,18,15,.14));
+}
+.issue-003-hero-art .article-title-box {
+  max-width: 180px;
+  padding: 24px;
+}
+.issue-003-corner-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+}
 .article-intro { padding: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 28px; box-shadow: var(--shadow); margin-top: 20px; }
+.article-intro h1 {
+  font-size: clamp(34px, 5.4vw, 68px);
+  line-height: 1.04;
+  margin: 0 0 18px;
+}
 .article-intro p + p { margin-top: 16px; }
 .article-intro p { font-size: 19px; }
 
@@ -240,6 +262,26 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   .feature-card-image { height: 300px; }
   .feature-card-body, .article-title-box, .article-intro, .article-block, .toc, .tg-card { padding: 22px; }
   .article-cover { min-height: 460px; border-radius: 24px; }
+  .issue-003-hero-art .article-title-box {
+    max-width: 140px;
+    padding: 18px;
+  }
+  .issue-003-hero-art {
+    min-height: 260px;
+    background: #e8dec7;
+  }
+  .issue-003-hero-art img {
+    object-fit: cover;
+    object-position: right center;
+    transform: scale(1.18);
+    transform-origin: right center;
+  }
+  .issue-003-hero-art::after { background: linear-gradient(180deg, rgba(20,18,15,.04), rgba(20,18,15,.12)); }
+  .issue-003-corner-badge {
+    top: 18px;
+    left: 18px;
+  }
+  .article-intro h1 { font-size: clamp(30px, 10vw, 52px); }
   .link-grid { grid-template-columns: 1fr; }
   .archive-block { padding: 22px; }
   .archive-row { grid-template-columns: 1fr; gap: 6px; }

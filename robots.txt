@@ -5,4 +5,4 @@ User-agent: Yandex
 Allow: /
 
 Sitemap: https://mamayagulyayu.ru/sitemap.xml
-Host: https://mamayagulyayu.ru
+Host: mamayagulyayu.ru

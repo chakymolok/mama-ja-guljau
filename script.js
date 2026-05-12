@@ -1,7 +1,8 @@
 const randomArticleLinks = [
   "/digests/2026-04-21/",
   "/digests/2026-05-01/",
-  "/digests/2026-05-08/"
+  "/digests/2026-05-08/",
+  "/digests/2026-05-12/"
 ];
 
 function getCanonicalUrl() {
