@@ -259,6 +259,127 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .callout.green { background: var(--green-soft); } .callout.pink { background: var(--pink-soft); }
 .callout strong { display: block; margin-bottom: 8px; }
 
+/* About page */
+.about-hero {
+  padding: 56px 0 28px;
+}
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  gap: 32px;
+  align-items: stretch;
+}
+.about-hero-card,
+.about-photo-card,
+.about-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+.about-hero-card {
+  padding: clamp(26px, 5vw, 46px);
+}
+.about-hero-card h1 {
+  font-size: clamp(42px, 7vw, 78px);
+  max-width: 780px;
+  margin: 0 0 18px;
+}
+.about-hero-card .lead {
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.38;
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+.about-photo-card {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.about-photo-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  object-position: center 22%;
+  filter: grayscale(100%);
+}
+.about-photo-caption {
+  padding: 16px 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 24px;
+  align-items: start;
+}
+.about-panel {
+  padding: clamp(24px, 4vw, 38px);
+  margin-bottom: 24px;
+}
+.about-panel h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  margin-bottom: 16px;
+}
+.about-panel p {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.about-panel p:last-child {
+  margin-bottom: 0;
+}
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+.about-fact {
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.about-fact strong {
+  display: block;
+  font-size: 24px;
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+.about-fact span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+.about-side {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  gap: 14px;
+}
+.about-link-list {
+  display: grid;
+  gap: 10px;
+}
+.about-link-list a {
+  text-decoration: none;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-weight: 800;
+}
+.about-link-list a span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
 .season-inventory-card,
 .summer-rhythm-card {
   display: grid;
@@ -455,10 +576,11 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .mobile-nav-panel { display: none; }
 
 @media (max-width: 920px) {
-  .home-hero-grid, .article-layout, .block-head { grid-template-columns: 1fr; }
-  .article-side { display: none; }
+  .home-hero-grid, .article-layout, .block-head, .about-hero-grid, .about-layout { grid-template-columns: 1fr; }
+  .article-side, .about-side { display: none; }
   .editorial-collage { min-height: 360px; }
   .issue-teasers, .toc-grid { grid-template-columns: 1fr; }
+  .about-facts { grid-template-columns: 1fr; }
   .block-media { max-width: 460px; }
   .media-grid-two,
   .media-grid-three { grid-template-columns: 1fr; }
@@ -494,6 +616,9 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   .collage-thermos { width: 110px; height: 120px; }
   .feature-card-image { aspect-ratio: 1 / 1; }
   .feature-card-body, .article-title-box, .article-intro, .article-block, .toc, .tg-card { padding: 22px; }
+  .about-hero-card,
+  .about-panel { padding: 22px; }
+  .about-photo-card img { min-height: 320px; }
   .article-cover { min-height: 460px; border-radius: 24px; }
   .issue-003-hero-art .article-title-box {
     max-width: 140px;
@@ -712,21 +837,6 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   }
 }
 
-
-
-
-/* Mobile: hide overview blocks and old hero card variants. */
-@media (max-width: 760px) {
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
-    display: none !important;
-  }
-}
-
 @media (max-width: 920px) {
   body .hero .container {
     display: block !important;
@@ -805,46 +915,6 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 
   #issue {
     padding-top: 10px !important;
-  }
-
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
-    display: none !important;
-  }
-}
-
-
-/* Desktop restore for overview sections */
-@media (min-width: 761px) {
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
-    display: block !important;
-  }
-
-  #inside .issue-teasers,
-  #rubrics .rubrics-grid,
-  #categories .cats-grid {
-    display: grid !important;
-  }
-}
-
-/* Mobile only: hide overview sections */
-@media (max-width: 760px) {
-  #inside,
-  #rubrics,
-  #categories,
-  .inside-section,
-  .rubrics-section,
-  .categories-section {
-    display: none !important;
   }
 }
 
