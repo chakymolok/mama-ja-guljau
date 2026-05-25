@@ -191,6 +191,18 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   max-width: 260px;
   padding: 24px;
 }
+.issue-013-hero-art {
+  aspect-ratio: 1942 / 809;
+  min-height: 0;
+  background: #163427;
+}
+.issue-013-hero-art img {
+  object-position: center center;
+  opacity: 1;
+}
+.issue-013-hero-art::after {
+  background: linear-gradient(180deg, rgba(20,18,15,.05), rgba(20,18,15,.2));
+}
 .article-intro { padding: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 28px; box-shadow: var(--shadow); margin-top: 20px; }
 .article-intro h1 {
   font-size: clamp(34px, 5.4vw, 68px);
@@ -258,6 +270,27 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .callout { padding: 20px; border-radius: 22px; border: 1px solid var(--border); background: var(--yellow-soft); margin: 24px 0; }
 .callout.green { background: var(--green-soft); } .callout.pink { background: var(--pink-soft); }
 .callout strong { display: block; margin-bottom: 8px; }
+.media-placeholder-card {
+  margin: 24px 0;
+  background: var(--bg);
+}
+.media-placeholder {
+  display: grid;
+  min-height: 220px;
+  place-items: center;
+  padding: 28px;
+  color: var(--muted);
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.bonus-block {
+  background: linear-gradient(180deg, rgba(251,241,218,.58), rgba(255,255,255,.98));
+  border-top: 3px solid var(--border);
+}
+.issue-013-bonus-link {
+  margin-top: 22px;
+}
 
 /* About page */
 .about-hero {
@@ -644,6 +677,13 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   }
   .issue-004-hero-art::after {
     background: linear-gradient(180deg, rgba(20,18,15,.04), rgba(20,18,15,.18));
+  }
+  .issue-013-hero-art {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+  .issue-013-hero-art img {
+    object-position: center center;
   }
   .issue-003-corner-badge {
     top: 18px;
