@@ -656,6 +656,38 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   .collage-thermos { width: 110px; height: 120px; }
   .feature-card-image { aspect-ratio: 1 / 1; }
   .feature-card-body, .article-title-box, .article-intro, .article-block, .toc, .tg-card { padding: 22px; }
+  .block-media,
+  .block-media.contain,
+  .block-media.wide-media {
+    max-width: none;
+    border-radius: 18px;
+  }
+  .block-media img,
+  .block-media.contain img,
+  .block-media.contain.wide-media img,
+  .block-media.wide-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    padding: 0;
+  }
+  .block-media.book-cover img,
+  .block-media.poster-media img {
+    width: 100%;
+    max-height: 420px;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    padding: 10px;
+  }
+  .media-grid .block-media {
+    max-width: 100%;
+  }
+  .caption {
+    padding: 9px 10px;
+  }
   .about-hero-card,
   .about-panel { padding: 22px; }
   .about-photo-card img { height: 340px; min-height: 0; }
