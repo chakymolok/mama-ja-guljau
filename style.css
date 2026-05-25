@@ -247,10 +247,17 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   background: #fff;
 }
 .block-media.poster-media img { background: #141414; }
+.block-media.stamp-media img { background: var(--bg); }
 .wide-media { margin: 24px 0; }
 .wide-media img {
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+.block-media.contain.wide-media img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  padding: 12px;
+  background: var(--bg);
 }
 .prose-media {
   margin: 0 0 24px;
