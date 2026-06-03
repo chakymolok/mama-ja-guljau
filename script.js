@@ -3,8 +3,26 @@ const randomArticleLinks = [
   "/digests/2026-05-01/",
   "/digests/2026-05-08/",
   "/digests/2026-05-12/",
-  "/digests/2026-05-19/"
+  "/digests/2026-05-19/",
+  "/digests/2026-05-26/",
+  "/digests/2026-06-03/"
 ];
+
+const materialTopicLabels = {
+  all: "Все материалы",
+  books: "Книги",
+  games: "Игры с детьми",
+  talk: "Поговорить",
+  watch: "Посмотреть",
+  listen: "Послушать",
+  craft: "Сделать руками",
+  finds: "Находки",
+  parents: "Родителям",
+  summer: "Лето и дача",
+  screens: "Экраны",
+  sports: "Спорт",
+  grandparents: "Бабушки"
+};
 
 function getCanonicalUrl() {
   const canonical = document.querySelector('link[rel="canonical"]');
@@ -231,7 +249,15 @@ function initSmoothAnchors() {
       if (!target) return;
 
       event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = "auto";
+      target.scrollIntoView({ block: "start" });
+      document.documentElement.style.scrollBehavior = previousScrollBehavior;
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, "", selector);
+      } else {
+        window.location.hash = selector;
+      }
       closeTransientUi();
     });
   });
@@ -247,6 +273,62 @@ function initRandomArticleLinks() {
       window.location.href = next;
     });
   });
+}
+
+function initMaterialFilters() {
+  const page = document.querySelector(".materials-page");
+  if (!page) return;
+
+  const cards = Array.from(page.querySelectorAll(".material-card[data-topics]"));
+  const buttons = Array.from(page.querySelectorAll(".topic-filter[data-topic]"));
+  const count = page.querySelector(".js-material-count");
+  const title = page.querySelector(".js-material-topic-title");
+  const empty = page.querySelector(".js-material-empty");
+
+  function normalizeTopic(topic) {
+    return materialTopicLabels[topic] ? topic : "all";
+  }
+
+  function applyFilter(topic, updateUrl) {
+    const activeTopic = normalizeTopic(topic);
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const topics = (card.dataset.topics || "").split(/\s+/);
+      const show = activeTopic === "all" || topics.includes(activeTopic);
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+
+    buttons.forEach((button) => {
+      const isActive = button.dataset.topic === activeTopic;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    if (count) count.textContent = String(visible);
+    if (title) title.textContent = materialTopicLabels[activeTopic];
+    if (empty) empty.hidden = visible !== 0;
+
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      if (activeTopic === "all") {
+        url.searchParams.delete("topic");
+      } else {
+        url.searchParams.set("topic", activeTopic);
+      }
+      window.history.replaceState({}, "", url);
+    }
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      applyFilter(button.dataset.topic, true);
+    });
+  });
+
+  const initialTopic = new URLSearchParams(window.location.search).get("topic") || "all";
+  applyFilter(initialTopic, false);
 }
 
 function initGlobalEvents() {
@@ -320,6 +402,7 @@ function init() {
   updateShareLinks();
   initSmoothAnchors();
   initRandomArticleLinks();
+  initMaterialFilters();
   initGlobalEvents();
   typographPage();
 }
