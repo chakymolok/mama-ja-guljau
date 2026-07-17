@@ -26,13 +26,24 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": "https://mamayagulyayu.ru/materials/#collection",
-    "url": "https://mamayagulyayu.ru/materials/",
-    "name": "Подборки материалов. Мама, я гуляю",
-    "description": "Материалы из всех выпусков «Мама, я гуляю» по темам.",
-    "inLanguage": "ru-RU",
-    "isPartOf": { "@id": "https://mamayagulyayu.ru/#website" }
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://mamayagulyayu.ru/materials/#collection",
+        "url": "https://mamayagulyayu.ru/materials/",
+        "name": "Подборки материалов. Мама, я гуляю",
+        "description": "Материалы из всех выпусков «Мама, я гуляю» по темам.",
+        "inLanguage": "ru-RU",
+        "isPartOf": { "@id": "https://mamayagulyayu.ru/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://mamayagulyayu.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Материалы", "item": "https://mamayagulyayu.ru/materials/" }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -53,7 +64,7 @@
       <nav class="nav">
         <a href="../">Главная</a>
         <a href="./">Подборки</a>
-        <a href="../#archive">Архив</a>
+        <a href="../digests/">Архив</a>
         <a href="../about/">О проекте</a>
         <a href="https://t.me/sloika_ibot" target="_blank" rel="noopener noreferrer">Telegram</a>
       </nav>
@@ -61,6 +72,7 @@
   </header>
 
   <main>
+    <div class="container"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="../">Главная</a><span>/</span><span aria-current="page">Материалы</span></nav></div>
     <section class="materials-hero">
       <div class="container">
         <div class="materials-hero-card">
@@ -75,6 +87,13 @@
       <div class="container materials-layout">
         <aside class="materials-filter-panel" aria-label="Фильтр материалов">
           <div class="kicker">Фильтр</div>
+          <form class="material-search" role="search" action="./" method="get">
+            <label for="material-search-input">Поиск по материалам</label>
+            <div class="material-search-row">
+              <input id="material-search-input" class="js-material-search" type="search" name="q" placeholder="Например, смартфон или Тоторо" autocomplete="off">
+              <button type="submit" aria-label="Найти">Найти</button>
+            </div>
+          </form>
           <div class="topic-filter-row">
             <button class="topic-filter active" type="button" data-topic="all" aria-pressed="true">Все</button>
             <button class="topic-filter" type="button" data-topic="games" aria-pressed="false">Игры</button>
@@ -102,12 +121,12 @@
           </div>
 
           <div class="materials-grid">
-            <a class="material-card" href="../digests/2026-06-03/#book" data-topics="books parents summer">
+            <a class="material-card" href="winnie-pooh-and-boredom/" data-topics="books parents summer">
               <span class="material-meta">№006 · 📚 Книжка-пятиминутка</span>
               <strong>Винни-Пух родился из детской скуки, и это не метафора</strong>
               <span>История про Кристофера Робина, Милна и скуку, из которой выросла великая детская книга.</span>
             </a>
-            <a class="material-card" href="../digests/2026-06-03/#talk" data-topics="talk parents screens summer">
+            <a class="material-card" href="what-to-do-when-bored/" data-topics="talk parents screens summer">
               <span class="material-meta">№006 · 💬 Повод поговорить</span>
               <strong>Что ты делаешь, когда тебе скучно</strong>
               <span>Вопрос, который помогает услышать ребёнка, а не срочно занять его чем-нибудь.</span>
@@ -117,12 +136,12 @@
               <strong>Эксперимент 2014 года, который изменил разговор о скуке</strong>
               <span>Сэнди Манн, Ребекка Кадман, Тереза Белтон и связь скуки с креативностью.</span>
             </a>
-            <a class="material-card" href="../digests/2026-06-03/#ma" data-topics="parents watch">
+            <a class="material-card" href="japanese-ma-miyazaki/" data-topics="parents watch">
               <span class="material-meta">№006 · 🌸 Полезное</span>
               <strong>Японская «ма»: пустота, без которой не понять Миядзаки</strong>
               <span>Пауза между событиями как то, что превращает впечатления в опыт.</span>
             </a>
-            <a class="material-card" href="../digests/2026-06-03/#games" data-topics="games summer">
+            <a class="material-card" href="twelve-boredom-games/" data-topics="games summer">
               <span class="material-meta">№006 · 🌳 Игры и ритуалы</span>
               <strong>Двенадцать сценариев, которые рождаются из скуки</strong>
               <span>Куст, облака, звуки, камни, лужи, самолётик и час без часов.</span>
@@ -137,7 +156,7 @@
               <strong>Bored and Brilliant и «Гусьгусь»</strong>
               <span>Один подкаст для взрослого, один детский аудиофон для медленных занятий.</span>
             </a>
-            <a class="material-card" href="../digests/2026-06-03/#box" data-topics="finds craft parents summer">
+            <a class="material-card" href="boredom-box/" data-topics="finds craft parents summer">
               <span class="material-meta">№006 · 📦 Находки</span>
               <strong>Коробка скуки: одна простая вещь в каждый дом</strong>
               <span>Не игрушки, а материалы, из которых ребёнок может сделать игру сам.</span>
@@ -158,7 +177,7 @@
               <strong>Один вопрос, который стоит задать ребёнку до поездки</strong>
               <span>Как начать разговор про бабушку с хорошего, а не с инструктажа.</span>
             </a>
-            <a class="material-card" href="../digests/2026-05-26/#conflicts" data-topics="parents grandparents talk">
+            <a class="material-card" href="grandmother-conflicts/" data-topics="parents grandparents talk">
               <span class="material-meta">№005 · 🧠 Родителям</span>
               <strong>Три типа конфликтов с бабушкой, и почему их нельзя путать</strong>
               <span>Правила, ценности и безопасность в одном большом блоке.</span>
@@ -173,7 +192,7 @@
               <strong>Пять родительских ошибок перед летом с бабушкой</strong>
               <span>Где взрослые сами портят ребёнку поездку ещё до старта.</span>
             </a>
-            <a class="material-card" href="../digests/2026-05-26/#yard" data-topics="games summer grandparents">
+            <a class="material-card" href="grandmother-yard/" data-topics="games summer grandparents">
               <span class="material-meta">№005 · 🌳 Игры на улице</span>
               <strong>Бабушкин двор: почему ребёнку нужен взрослый, который просто сидит рядом</strong>
               <span>Свободная игра и взрослая фигура на скамейке.</span>
@@ -204,12 +223,12 @@
               <strong>Хайдт, Твенге и Лембке: три слоя разговора о детях и экране</strong>
               <span>Книги, которые помогают не свести тему смартфона к запрету.</span>
             </a>
-            <a class="material-card" href="../digests/2026-05-19/#talk" data-topics="talk screens parents">
+            <a class="material-card" href="family-screen-conversation/" data-topics="talk screens parents">
               <span class="material-meta">№004 · 💬 Повод поговорить</span>
               <strong>Что ты смотришь, когда никто не видит</strong>
               <span>Разговор про экран без проверки истории и полицейского тона.</span>
             </a>
-            <a class="material-card" href="../digests/2026-05-19/#outdoor" data-topics="games screens summer">
+            <a class="material-card" href="replace-screen-time/" data-topics="games screens summer">
               <span class="material-meta">№004 · 🌳 Заменить экран</span>
               <strong>Чем заполнить время, освободившееся от экрана</strong>
               <span>Игры и улица как настоящая альтернатива, а не наказание.</span>
@@ -370,6 +389,7 @@
       <nav class="footer-links" aria-label="Ссылки в подвале">
         <a href="../">Главная</a>
         <a href="./">Подборки</a>
+        <a href="../digests/">Архив</a>
         <a href="../about/">О проекте</a>
         <a href="../digests/2026-06-03/">Выпуск №006</a>
         <a href="../digests/2026-05-26/">Выпуск №005</a>

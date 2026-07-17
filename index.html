@@ -34,7 +34,15 @@
         "name": "Мама, я гуляю",
         "description": "Короткие дайджесты и подборки для родителей: что почитать, во что поиграть, что посмотреть.",
         "inLanguage": "ru-RU",
-        "publisher": { "@id": "https://mamayagulyayu.ru/#organization" }
+        "publisher": { "@id": "https://mamayagulyayu.ru/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://mamayagulyayu.ru/materials/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "Organization",
@@ -136,16 +144,17 @@
             <div>
               <div class="kicker">Подборки</div>
               <h2 id="topics-title">Материалы по темам</h2>
+              <p class="topic-entry-intro">Игры с детьми на улице, книги для семейного чтения, разговоры без допроса, фильмы и спокойные идеи для родителей.</p>
             </div>
             <a class="btn" href="materials/">Все материалы</a>
           </div>
           <div class="topic-grid">
-            <a class="topic-card" href="materials/?topic=games"><span>🌳</span><strong>Игры с детьми</strong><small>Двор, парк, дача и прогулки без подготовки.</small></a>
-            <a class="topic-card" href="materials/?topic=books"><span>📚</span><strong>Что почитать</strong><small>Книги для ребёнка, подростка и родителя.</small></a>
-            <a class="topic-card" href="materials/?topic=talk"><span>💬</span><strong>Поводы поговорить</strong><small>Вопросы, которые не превращают разговор в допрос.</small></a>
-            <a class="topic-card" href="materials/?topic=watch"><span>👀</span><strong>Посмотреть</strong><small>Мультфильмы, фильмы и короткие видео.</small></a>
-            <a class="topic-card" href="materials/?topic=craft"><span>✂️</span><strong>Сделать руками</strong><small>Бумага, тени, маленькие задания и домашние штуки.</small></a>
-            <a class="topic-card" href="materials/?topic=parents"><span>🧠</span><strong>Родителям</strong><small>Правила, границы, экраны, спорт и семейные договорённости.</small></a>
+            <a class="topic-card" href="materials/games/"><span>🌳</span><strong>Игры с детьми</strong><small>Двор, парк, дача и прогулки без подготовки.</small></a>
+            <a class="topic-card" href="materials/books/"><span>📚</span><strong>Что почитать</strong><small>Книги для ребёнка, подростка и родителя.</small></a>
+            <a class="topic-card" href="materials/talk/"><span>💬</span><strong>Поводы поговорить</strong><small>Вопросы, которые не превращают разговор в допрос.</small></a>
+            <a class="topic-card" href="materials/watch/"><span>👀</span><strong>Посмотреть</strong><small>Мультфильмы, фильмы и короткие видео.</small></a>
+            <a class="topic-card" href="materials/craft/"><span>✂️</span><strong>Сделать руками</strong><small>Бумага, тени, маленькие задания и домашние штуки.</small></a>
+            <a class="topic-card" href="materials/parents/"><span>🧠</span><strong>Родителям</strong><small>Правила, границы, экраны, спорт и семейные договорённости.</small></a>
           </div>
         </section>
 
@@ -159,6 +168,7 @@
             <button class="share-btn js-copy-link" type="button" data-copy-url="https://mamayagulyayu.ru/digests/2026-06-03/">🔗 Скопировать ссылку</button>
             <span class="share-status js-copy-status" aria-live="polite"></span>
           </div>
+          <p class="archive-all-link"><a class="btn" href="digests/">Открыть полный архив</a></p>
         </div>
 
         <div class="archive-block" id="archive">
@@ -265,6 +275,7 @@
         <a href="#top">Главная</a>
         <a href="about/">О проекте</a>
         <a href="materials/">Подборки</a>
+        <a href="digests/">Архив</a>
         <a href="digests/2026-06-03/">Выпуск №006</a>
         <a href="digests/2026-05-26/">Выпуск №005</a>
         <a href="digests/2026-05-19/">Выпуск №004</a>

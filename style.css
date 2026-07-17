@@ -153,6 +153,11 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
 .topic-entry-head h2 {
   font-size: clamp(30px, 4vw, 44px);
 }
+.topic-entry-intro {
+  max-width: 720px;
+  margin-top: 10px;
+  color: var(--muted);
+}
 .topic-entry-section .topic-grid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -659,6 +664,137 @@ section { padding: 56px 0; } section[id] { scroll-margin-top: 92px; }
   background: var(--yellow-soft);
   color: var(--muted);
   font-weight: 800;
+}
+
+/* Search, archive and indexable material pages */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 22px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.breadcrumbs a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.breadcrumbs span[aria-current="page"] {
+  color: var(--text);
+}
+.material-search {
+  margin: 0 0 18px;
+}
+.material-search label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+.material-search-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.material-search input {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  padding: 11px 12px;
+  font: inherit;
+  font-size: 14px;
+}
+.material-search button {
+  border: 1px solid var(--text);
+  border-radius: 12px;
+  background: var(--text);
+  color: #fff;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.collection-hero {
+  padding: 46px 0 22px;
+}
+.collection-hero h1 {
+  max-width: 900px;
+  font-size: clamp(40px, 6vw, 68px);
+}
+.collection-hero p {
+  max-width: 760px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 19px;
+}
+.collection-results,
+.archive-page-list {
+  padding-top: 24px;
+}
+.collection-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.material-card-rich {
+  grid-template-rows: 170px auto auto 1fr;
+  overflow: hidden;
+  padding: 0;
+}
+.material-card-rich img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+.material-card-rich > span,
+.material-card-rich > strong {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+.material-card-rich > span:last-child {
+  margin-bottom: 20px;
+}
+.standalone-material {
+  padding-top: 34px;
+}
+.standalone-material-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(220px, 280px);
+  align-items: start;
+  gap: 34px;
+}
+.standalone-material-layout > .article-block {
+  margin: 0;
+}
+.standalone-material .article-block h1 {
+  max-width: 900px;
+  font-size: clamp(38px, 5.4vw, 62px);
+}
+.source-issue-card {
+  position: sticky;
+  top: 92px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--yellow-soft);
+}
+.source-issue-card p {
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+.archive-page-list .archive-list {
+  padding: 0 24px 54px;
+  border-top: 0;
+}
+.archive-all-link {
+  margin-top: 20px;
 }
 
 .season-inventory-card,
@@ -2031,6 +2167,31 @@ p, li, blockquote, .lead, .sub, .article-block p, .block p, .issue p, .teaser p 
 
   .topic-entry-section .topic-card {
     min-height: 112px;
+  }
+
+  .standalone-material-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .source-issue-card {
+    position: static;
+  }
+
+  .material-search-row {
+    grid-template-columns: 1fr;
+  }
+
+  .material-search button {
+    min-height: 44px;
+  }
+
+  .material-card-rich {
+    grid-template-rows: 190px auto auto 1fr;
+  }
+
+  .material-card-rich img {
+    height: 190px;
   }
 
   .ma-media {

@@ -281,21 +281,32 @@ function initMaterialFilters() {
 
   const cards = Array.from(page.querySelectorAll(".material-card[data-topics]"));
   const buttons = Array.from(page.querySelectorAll(".topic-filter[data-topic]"));
+  const searchInput = page.querySelector(".js-material-search");
+  const searchForm = searchInput ? searchInput.closest("form") : null;
   const count = page.querySelector(".js-material-count");
   const title = page.querySelector(".js-material-topic-title");
   const empty = page.querySelector(".js-material-empty");
+  let currentTopic = "all";
 
   function normalizeTopic(topic) {
     return materialTopicLabels[topic] ? topic : "all";
   }
 
+  function normalizeSearch(value) {
+    return (value || "").trim().toLocaleLowerCase("ru-RU");
+  }
+
   function applyFilter(topic, updateUrl) {
     const activeTopic = normalizeTopic(topic);
+    const query = normalizeSearch(searchInput ? searchInput.value : "");
     let visible = 0;
+    currentTopic = activeTopic;
 
     cards.forEach((card) => {
       const topics = (card.dataset.topics || "").split(/\s+/);
-      const show = activeTopic === "all" || topics.includes(activeTopic);
+      const matchesTopic = activeTopic === "all" || topics.includes(activeTopic);
+      const matchesQuery = !query || normalizeSearch(card.textContent).includes(query);
+      const show = matchesTopic && matchesQuery;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -317,6 +328,11 @@ function initMaterialFilters() {
       } else {
         url.searchParams.set("topic", activeTopic);
       }
+      if (query) {
+        url.searchParams.set("q", query);
+      } else {
+        url.searchParams.delete("q");
+      }
       window.history.replaceState({}, "", url);
     }
   }
@@ -327,7 +343,18 @@ function initMaterialFilters() {
     });
   });
 
-  const initialTopic = new URLSearchParams(window.location.search).get("topic") || "all";
+  const initialParams = new URLSearchParams(window.location.search);
+  const initialTopic = initialParams.get("topic") || "all";
+  if (searchInput) {
+    searchInput.value = initialParams.get("q") || "";
+    searchInput.addEventListener("input", () => applyFilter(currentTopic, true));
+  }
+  if (searchForm) {
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      applyFilter(currentTopic, true);
+    });
+  }
   applyFilter(initialTopic, false);
 }
 
